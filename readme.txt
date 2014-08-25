@@ -2,7 +2,7 @@
 
 Contributors: thingsym
 Link: https://github.com/thingsym/wp-is-mobile-text-widget
-Donate link: 
+Donate link: http://www.amazon.co.jp/registry/wishlist/3TTHFHIYJLJV9
 Tags: widget, text, mobile
 Requires at least: 3.4.0
 Tested up to: 3.9.2
