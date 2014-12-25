@@ -3,7 +3,7 @@
 Plugin Name: WP Is Mobile Text Widget
 Plugin URI: https://github.com/thingsym/wp-is-mobile-text-widget
 Description: This WordPress plugin adds text widget that switched display text using wp_is_mobile() function whether the device is mobile or not.
-Version: 1.0.0
+Version: 1.0.1
 Author: thingsym
 Author URI: http://www.thingslabo.com/
 License: GPLv2 or later
