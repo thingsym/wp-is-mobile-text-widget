@@ -86,7 +86,7 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	}
 
 	function form( $instance ) {
-		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'text' => '' ) );
+		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'text' => '', 'is_mobile_text' => '' ) );
 		$title = strip_tags($instance['title']);
 		$text = esc_textarea($instance['text']);
 		$is_mobile_text = esc_textarea($instance['is_mobile_text']);
