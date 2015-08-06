@@ -22,10 +22,6 @@ class wp_is_mobile_text_widget_Construct_Test extends WP_UnitTestCase {
 
         $this->assertArrayHasKey( 'id_base', $this->WP_Is_Mobile_Text_Widget->control_options );
         $this->assertEquals( 'wp_is_mobile_text', $this->WP_Is_Mobile_Text_Widget->control_options['id_base'] );
-        $this->assertArrayHasKey( 'width', $this->WP_Is_Mobile_Text_Widget->control_options );
-        $this->assertSame( 400, $this->WP_Is_Mobile_Text_Widget->control_options['width'] );
-        $this->assertArrayHasKey( 'height', $this->WP_Is_Mobile_Text_Widget->control_options );
-        $this->assertSame( 350, $this->WP_Is_Mobile_Text_Widget->control_options['height'] );
 
         $this->assertEquals( 'widget_wp_is_mobile_text', $this->WP_Is_Mobile_Text_Widget->option_name );
     }
