@@ -4,8 +4,8 @@ Contributors: thingsym
 Link: https://github.com/thingsym/wp-is-mobile-text-widget
 Donate link: http://www.amazon.co.jp/registry/wishlist/3TTHFHIYJLJV9
 Tags: widget, text, mobile
-Requires at least: 3.4.0
-Tested up to: 4.2.0
+Requires at least: 3.4
+Tested up to: 4.5
 Stable tag: 1.0.2
 License: GPL2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
