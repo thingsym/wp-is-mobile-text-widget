@@ -1,5 +1,10 @@
 language: php
 
+notifications:
+  email:
+    on_success: never
+    on_failure: change
+
 php:
   - 7.2
   - 7.1
@@ -22,6 +27,10 @@ env:
   - WP_VERSION=4.5 WP_MULTISITE=1
   - WP_VERSION=4.4 WP_MULTISITE=0
   - WP_VERSION=4.4 WP_MULTISITE=1
+  - WP_VERSION=nightly WP_MULTISITE=0
+  - WP_VERSION=nightly WP_MULTISITE=1
+  - WP_VERSION=trunk WP_MULTISITE=0
+  - WP_VERSION=trunk WP_MULTISITE=1
   - WP_VERSION=4.3 WP_MULTISITE=0
   - WP_VERSION=4.2 WP_MULTISITE=0
   - WP_VERSION=4.1 WP_MULTISITE=0
