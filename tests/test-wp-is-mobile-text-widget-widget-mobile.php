@@ -15,16 +15,16 @@ class Wp_Is_Mobile_Text_Widget_Widget_Mobile_Test extends WP_UnitTestCase {
 		 */
 		public function widget_case_mobile() {
 				$args = array(
-						'before_widget' => '<aside id="wp_is_mobile_text-1" class="widget widget_is_mobile_text">',
-						'after_widget' => '</aside>',
-						'before_title' => '<h3 class="widget-title">',
-						'after_title' => '</h3>',
+					'before_widget' => '<aside id="wp_is_mobile_text-1" class="widget widget_is_mobile_text">',
+					'after_widget'  => '</aside>',
+					'before_title'  => '<h3 class="widget-title">',
+					'after_title'   => '</h3>',
 				);
 				$instance = array(
-						'title' => 'aaaaa',
-						'text' => 'bbbbb',
-						'is_mobile_text' => 'ccccc',
-						'filter' => false,
+					'title'          => 'aaaaa',
+					'text'           => 'bbbbb',
+					'is_mobile_text' => 'ccccc',
+					'filter'         => false,
 				);
 
 				$_SERVER['HTTP_USER_AGENT'] = 'Mobile';

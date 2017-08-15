@@ -13,10 +13,10 @@ class Wp_Is_Mobile_Text_Widget_Form_Test extends WP_UnitTestCase {
 		 */
 		public function form_case_1() {
 				$instance = array(
-						'title' => 'aaaaa',
-						'text' => 'bbbbb',
-						'is_mobile_text' => 'ccccc',
-						'filter' => false,
+					'title'          => 'aaaaa',
+					'text'           => 'bbbbb',
+					'is_mobile_text' => 'ccccc',
+					'filter'         => false,
 				);
 
 				ob_start();
@@ -35,10 +35,10 @@ class Wp_Is_Mobile_Text_Widget_Form_Test extends WP_UnitTestCase {
 		 */
 		public function form_case_2() {
 				$instance = array(
-						'title' => 'aaaaa',
-						'text' => 'bbbbb',
-						'is_mobile_text' => 'ccccc',
-						'filter' => true,
+					'title'          => 'aaaaa',
+					'text'           => 'bbbbb',
+					'is_mobile_text' => 'ccccc',
+					'filter'         => true,
 				);
 
 				ob_start();
