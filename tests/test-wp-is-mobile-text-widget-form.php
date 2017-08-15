@@ -19,14 +19,12 @@ class Wp_Is_Mobile_Text_Widget_Form_Test extends WP_UnitTestCase {
 					'filter'         => false,
 				);
 
-				ob_start();
-				$this->wp_is_mobile_text_widget->form( $instance );
-				$form = ob_get_clean();
+				$this->expectOutputRegex( '#value="aaaaa"#' );
+				$this->expectOutputRegex( '#<textarea.*?>bbbbb</textarea>#' );
+				$this->expectOutputRegex( '#<textarea.*?>ccccc</textarea>#' );
+				$this->expectOutputRegex( '#type="checkbox" />#' );
 
-				$this->assertContains( 'value="aaaaa"', $form );
-				$this->assertRegExp( '/<textarea.*?>bbbbb<\/textarea>/', $form );
-				$this->assertRegExp( '/<textarea.*?>ccccc<\/textarea>/', $form );
-				$this->assertEquals( 0, preg_match( '/type="checkbox"	checked=\'checked\'/', $form ) );
+				$this->wp_is_mobile_text_widget->form( $instance );
 		}
 
 		/**
@@ -41,11 +39,9 @@ class Wp_Is_Mobile_Text_Widget_Form_Test extends WP_UnitTestCase {
 					'filter'         => true,
 				);
 
-				ob_start();
-				$this->wp_is_mobile_text_widget->form( $instance );
-				$form = ob_get_clean();
+				$this->expectOutputRegex( '#type="checkbox" checked=\'checked\' />#' );
 
-				$this->assertContains( 'type="checkbox"	checked=\'checked\'', $form );
+				$this->wp_is_mobile_text_widget->form( $instance );
 		}
 
 }

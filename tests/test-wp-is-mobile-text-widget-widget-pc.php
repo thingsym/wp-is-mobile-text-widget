@@ -27,12 +27,10 @@ class Wp_Is_Mobile_Text_Widget_Widget_Pc_Test extends WP_UnitTestCase {
 					'filter'         => false,
 				);
 
-				ob_start();
-				$this->wp_is_mobile_text_widget->widget( $args, $instance );
-				$widget = ob_get_clean();
+				$this->expectOutputRegex( '#<h3 class="widget-title">aaaaa</h3>#' );
+				$this->expectOutputRegex( '#<div class="textwidget">bbbbb</div>#' );
 
-				$this->assertContains( '<h3 class="widget-title">aaaaa</h3>', $widget );
-				$this->assertContains( '<div class="textwidget">bbbbb</div>', $widget );
+				$this->wp_is_mobile_text_widget->widget( $args, $instance );
 		}
 
 }

@@ -29,12 +29,10 @@ class Wp_Is_Mobile_Text_Widget_Widget_Mobile_Test extends WP_UnitTestCase {
 
 				$_SERVER['HTTP_USER_AGENT'] = 'Mobile';
 
-				ob_start();
-				$this->wp_is_mobile_text_widget->widget( $args, $instance );
-				$widget = ob_get_clean();
+				$this->expectOutputRegex( '#<h3 class="widget-title">aaaaa</h3>#' );
+				$this->expectOutputRegex( '#<div class="textwidget">ccccc</div>#' );
 
-				$this->assertContains( '<h3 class="widget-title">aaaaa</h3>', $widget );
-				$this->assertContains( '<div class="textwidget">ccccc</div>', $widget );
+				$this->wp_is_mobile_text_widget->widget( $args, $instance );
 		}
 
 }
