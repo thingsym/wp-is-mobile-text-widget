@@ -4,7 +4,7 @@ class Wp_Is_Mobile_Text_Widget_Widget_Pc_Test extends WP_UnitTestCase {
 
 		public function setUp() {
 				parent::setUp();
-				$this->WP_Is_Mobile_Text_Widget = new WP_Is_Mobile_Text_Widget();
+				$this->wp_is_mobile_text_widget = new WP_Is_Mobile_Text_Widget();
 		}
 
 		/**
@@ -28,7 +28,7 @@ class Wp_Is_Mobile_Text_Widget_Widget_Pc_Test extends WP_UnitTestCase {
 				);
 
 				ob_start();
-				$this->WP_Is_Mobile_Text_Widget->widget( $args, $instance );
+				$this->wp_is_mobile_text_widget->widget( $args, $instance );
 				$widget = ob_get_clean();
 
 				$this->assertContains( '<h3 class="widget-title">aaaaa</h3>', $widget );

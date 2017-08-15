@@ -4,7 +4,7 @@ class Wp_Is_Mobile_Text_Widget_Form_Test extends WP_UnitTestCase {
 
 		public function setUp() {
 				parent::setUp();
-				$this->WP_Is_Mobile_Text_Widget = new WP_Is_Mobile_Text_Widget();
+				$this->wp_is_mobile_text_widget = new WP_Is_Mobile_Text_Widget();
 		}
 
 		/**
@@ -20,7 +20,7 @@ class Wp_Is_Mobile_Text_Widget_Form_Test extends WP_UnitTestCase {
 				);
 
 				ob_start();
-				$this->WP_Is_Mobile_Text_Widget->form( $instance );
+				$this->wp_is_mobile_text_widget->form( $instance );
 				$form = ob_get_clean();
 
 				$this->assertContains( 'value="aaaaa"', $form );
@@ -42,7 +42,7 @@ class Wp_Is_Mobile_Text_Widget_Form_Test extends WP_UnitTestCase {
 				);
 
 				ob_start();
-				$this->WP_Is_Mobile_Text_Widget->form( $instance );
+				$this->wp_is_mobile_text_widget->form( $instance );
 				$form = ob_get_clean();
 
 				$this->assertContains( 'type="checkbox"	checked=\'checked\'', $form );
