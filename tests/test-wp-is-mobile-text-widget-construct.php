@@ -1,6 +1,6 @@
 <?php
 
-class wp_is_mobile_text_widget_Construct_Test extends WP_UnitTestCase {
+class Wp_Is_Mobile_Text_Widget_Construct_Test extends WP_UnitTestCase {
 
 		public function setUp() {
 				parent::setUp();
