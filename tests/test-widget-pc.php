@@ -1,5 +1,5 @@
 <?php
-class Wp_Is_Mobile_Text_Widget_Widget_Pc_Test extends WP_UnitTestCase {
+class Test_Wp_Is_Mobile_Text_Widget_Widget_Pc extends WP_UnitTestCase {
 	protected $backupGlobalsBlacklist = array( 'wpdb', 'wp_query', 'post' );
 
 	public function setUp() {
