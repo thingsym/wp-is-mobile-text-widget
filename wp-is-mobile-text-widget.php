@@ -9,6 +9,8 @@
  * License: GPLv2 or later
  * Text Domain: wp-is-mobile-text-widget
  * Domain Path: /languages
+ *
+ * @package WP_Is_Mobile_Text_Widget
  */
 
 /**
@@ -73,6 +75,16 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 		parent::__construct( $this->widget_id_base, __( $this->widget_name, $this->textdomain ), $widget_options, $control_options );
 	}
 
+	/**
+	 * Outputs the content for the current Text widget instance.
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 *
+	 * @param array $args     Display arguments including 'before_title', 'after_title',
+	 *                        'before_widget', and 'after_widget'.
+	 * @param array $instance Settings for the current Text widget instance.
+	 */
 	public function widget( $args, $instance ) {
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
 		/** This filter is documented in wp-includes/widgets/class-wp-widget-text.php */
@@ -119,6 +131,17 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 		echo $args['after_widget'];
 	}
 
+	/**
+	 * Handles updating settings for the current Text widget instance.
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 *
+	 * @param array $new_instance New settings for this instance as input by the user via
+	 *                            WP_Widget::form().
+	 * @param array $old_instance Old settings for this instance.
+	 * @return array Settings to save or bool false to cancel saving.
+	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['title'] = strip_tags( $new_instance['title'] );
@@ -137,6 +160,15 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 		return $instance;
 	}
 
+	/**
+	 * Outputs the Text widget settings form.
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 *
+	 * @param array $instance Current settings.
+	 * @return void
+	 */
 	public function form( $instance ) {
 		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'text' => '', 'is_mobile_text' => '', 'is_mobile_text' => '' ) );
 
