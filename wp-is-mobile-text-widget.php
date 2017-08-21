@@ -75,6 +75,10 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 
 	public function widget( $args, $instance ) {
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
+		/** This filter is documented in wp-includes/widgets/class-wp-widget-text.php */
+		$text = apply_filters( 'widget_text', $instance['text'], $instance, $this );
+		$is_mobile_text = apply_filters( 'widget_text', $instance['is_mobile_text'], $instance, $this );
+
 		/**
 		 * Filters the content of the Text widget when wp_is_mobile is false.
 		 *
@@ -98,8 +102,6 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 		$is_mobile_text = apply_filters( 'wp_is_mobile_text_widget_is_mobile_true', $is_mobile_text, $instance, $this );
 
 
-		$text = apply_filters( 'widget_text', empty( $instance['text'] ) ? '' : $instance['text'], $instance );
-		$is_mobile_text = apply_filters( 'widget_is_mobile_text', empty( $instance['is_mobile_text'] ) ? '' : $instance['is_mobile_text'], $instance );
 
 		echo $args['before_widget'];
 		if ( ! empty( $title ) ) {
