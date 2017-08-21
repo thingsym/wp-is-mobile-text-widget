@@ -51,6 +51,18 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	protected $description = 'Arbitrary text or HTML.';
 
 	protected $textdomain = 'wp-is-mobile-text-widget';
+	/**
+	 * Default instance.
+	 *
+	 * @since 1.0.3
+	 * @var array
+	 */
+	protected $default_instance = array(
+		'title'          => '',
+		'text'           => '',
+		'is_mobile_text' => '',
+		'filter'         => false,
+	);
 
 	public function __construct() {
 		load_plugin_textdomain( $this->textdomain, false, basename( dirname( __FILE__ ) ) . '/languages' );
