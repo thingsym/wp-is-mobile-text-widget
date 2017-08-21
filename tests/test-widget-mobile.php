@@ -29,6 +29,7 @@ class Test_Wp_Is_Mobile_Text_Widget_Widget_Mobile extends WP_UnitTestCase {
 
 		$_SERVER['HTTP_USER_AGENT'] = 'Mobile';
 
+		$this->expectOutputRegex( '#<aside id="wp_is_mobile_text-1" class="widget widget_is_mobile_text">#' );
 		$this->expectOutputRegex( '#<h3 class="widget-title">aaaaa</h3>#' );
 		$this->expectOutputRegex( '#<div class="textwidget wp-is-mobile-text-widget">ccccc</div>#' );
 
@@ -78,21 +79,19 @@ class Test_Wp_Is_Mobile_Text_Widget_Widget_Mobile extends WP_UnitTestCase {
 		);
 		$instance = array(
 			'title'          => 'aaaaa',
-			'text'           => 'bbb<br>bb
-
-sss<br>ss',
-			'is_mobile_text' => 'ccc<br>cc
-
-sss<br>ss',
+			'text'           => "bbb<br>bb\n\nsss<br>ss",
+			'is_mobile_text' => "ccc<br>\n\nsss<br>ss",
 			'filter'         => true,
+		);
+		$expected = array(
+			'text'           => wpautop( "bbb<br>bb\n\nsss<br>ss" ),
+			'is_mobile_text' => wpautop( "ccc<br>\n\nsss<br>ss" ),
 		);
 
 		$_SERVER['HTTP_USER_AGENT'] = 'Mobile';
 
 		$this->expectOutputRegex( '#<h3 class="widget-title">aaaaa</h3>#' );
-		$this->expectOutputRegex( '#<div class="textwidget wp-is-mobile-text-widget"><p>ccc<br />cc</p>
-<p>sss<br />ss</p>
-</div>#' );
+		$this->expectOutputRegex( '#<div class="textwidget wp-is-mobile-text-widget">' . $expected['is_mobile_text'] . '</div>#' );
 
 		$this->wp_is_mobile_text_widget->widget( $args, $instance );
 	}
@@ -158,7 +157,7 @@ sss<br>ss',
 	}
 
 	public function _filter_test() {
-		return "via filter";
+		return 'via filter';
 	}
 
 }
