@@ -102,6 +102,8 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 		$is_mobile_text = apply_filters( 'wp_is_mobile_text_widget_is_mobile_true', $is_mobile_text, $instance, $this );
 
 
+		// Inject the Text widget's container class name alongside this widget's class name for theme styling compatibility.
+		$args['before_widget'] = preg_replace( '/(?<=\sclass=["\'])/', 'widget_text ', $args['before_widget'] );
 
 		echo $args['before_widget'];
 		if ( ! empty( $title ) ) {
