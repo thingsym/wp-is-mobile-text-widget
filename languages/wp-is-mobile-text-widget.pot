@@ -17,7 +17,7 @@ msgstr ""
 msgid "Title:"
 msgstr ""
 
-msgid "WP Is mobile text:"
+msgid "Text on mobile:"
 msgstr ""
 
 msgid "Automatically add paragraphs"
