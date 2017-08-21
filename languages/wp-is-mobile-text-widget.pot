@@ -23,3 +23,5 @@ msgstr ""
 msgid "Automatically add paragraphs"
 msgstr ""
 
+msgid "Some HTML tags are not permitted, including:"
+msgstr ""

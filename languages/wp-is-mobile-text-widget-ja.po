@@ -28,3 +28,5 @@ msgstr "モバイル時のテキスト:"
 msgid "Automatically add paragraphs"
 msgstr "自動的に段落追加する"
 
+msgid "Some HTML tags are not permitted, including:"
+msgstr "次を含む一部の HTML タグは許可されていません:"
