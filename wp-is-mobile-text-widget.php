@@ -197,7 +197,7 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 			<?php endif; ?>
 		<?php endif; ?>
 
-		<p><label for="<?php echo esc_attr( $this->get_field_id( 'is_mobile_text' ) ); ?>"><?php esc_html_e( 'WP Is Mobile Text:', 'wp-is-mobile-text-widget' ); ?></label>
+		<p><label for="<?php echo esc_attr( $this->get_field_id( 'is_mobile_text' ) ); ?>"><?php esc_html_e( 'Text on mobile:', 'wp-is-mobile-text-widget' ); ?></label>
 		<textarea class="widefat" rows="10" cols="20" id="<?php echo esc_attr( $this->get_field_id( 'is_mobile_text' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'is_mobile_text' ) ); ?>"><?php echo esc_textarea( $instance['is_mobile_text'] ); ?></textarea></p>
 
 		<?php if ( ! current_user_can( 'unfiltered_html' ) ) : ?>
