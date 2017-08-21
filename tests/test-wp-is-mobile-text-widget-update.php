@@ -16,7 +16,7 @@ class Wp_Is_Mobile_Text_Widget_Update_Test extends WP_UnitTestCase {
 			'title'          => '',
 			'text'           => '',
 			'is_mobile_text' => '',
-			// 'filter'      => 0,
+			'filter'         => false,
 		);
 		$old_instance = array();
 
@@ -25,7 +25,7 @@ class Wp_Is_Mobile_Text_Widget_Update_Test extends WP_UnitTestCase {
 		$this->assertEquals( $validate['title'], '' );
 		$this->assertEquals( $validate['text'], '' );
 		$this->assertEquals( $validate['is_mobile_text'], '' );
-		$this->assertEquals( $validate['filter'], 0 );
+		$this->assertFalse( $validate['filter'] );
 	}
 
 	/**
@@ -37,25 +37,25 @@ class Wp_Is_Mobile_Text_Widget_Update_Test extends WP_UnitTestCase {
 			'title'          => '',
 			'text'           => '',
 			'is_mobile_text' => '',
-			'filter'         => 1,
+			'filter'         => true,
 		);
 		$old_instance = array();
 
 		$validate = $this->wp_is_mobile_text_widget->update( $new_instance, $old_instance );
 
-		$this->assertEquals( $validate['filter'], 1 );
+		$this->assertTrue( $validate['filter'] );
 
 		$new_instance = array(
-			'title'           => '',
-			'text'            => '',
-			'is_mobile_text'  => '',
-			// 'filter'       => 0,
+			'title'          => '',
+			'text'           => '',
+			'is_mobile_text' => '',
+			'filter'         => false,
 		);
 		$old_instance = array();
 
 		$validate = $this->wp_is_mobile_text_widget->update( $new_instance, $old_instance );
 
-		$this->assertEquals( $validate['filter'], 0 );
+		$this->assertFalse( $validate['filter'] );
 	}
 
 	/**
@@ -67,6 +67,7 @@ class Wp_Is_Mobile_Text_Widget_Update_Test extends WP_UnitTestCase {
 			'title'          => 'asdf',
 			'text'           => '',
 			'is_mobile_text' => '',
+			'filter'         => false,
 		);
 		$old_instance = array();
 
@@ -78,6 +79,7 @@ class Wp_Is_Mobile_Text_Widget_Update_Test extends WP_UnitTestCase {
 			'title'          => 'as<br>df',
 			'text'           => '',
 			'is_mobile_text' => '',
+			'filter'         => false,
 		);
 		$old_instance = array();
 
@@ -95,6 +97,7 @@ class Wp_Is_Mobile_Text_Widget_Update_Test extends WP_UnitTestCase {
 			'title'          => '',
 			'text'           => 'asdf',
 			'is_mobile_text' => '',
+			'filter'         => false,
 		);
 		$old_instance = array();
 
@@ -106,6 +109,7 @@ class Wp_Is_Mobile_Text_Widget_Update_Test extends WP_UnitTestCase {
 			'title'          => '',
 			'text'           => 'as<br>df',
 			'is_mobile_text' => '',
+			'filter'         => false,
 		);
 		$old_instance = array();
 
@@ -117,6 +121,7 @@ class Wp_Is_Mobile_Text_Widget_Update_Test extends WP_UnitTestCase {
 			'title'          => '',
 			'text'           => "as'df",
 			'is_mobile_text' => '',
+			'filter'         => false,
 		);
 		$old_instance = array();
 
@@ -134,6 +139,7 @@ class Wp_Is_Mobile_Text_Widget_Update_Test extends WP_UnitTestCase {
 			'title'          => '',
 			'text'           => '',
 			'is_mobile_text' => 'asdf',
+			'filter'         => false,
 		);
 		$old_instance = array();
 
@@ -145,6 +151,7 @@ class Wp_Is_Mobile_Text_Widget_Update_Test extends WP_UnitTestCase {
 			'title'          => '',
 			'text'           => '',
 			'is_mobile_text' => 'as<br>df',
+			'filter'         => false,
 		);
 		$old_instance = array();
 
@@ -156,6 +163,7 @@ class Wp_Is_Mobile_Text_Widget_Update_Test extends WP_UnitTestCase {
 			'title'          => '',
 			'text'           => '',
 			'is_mobile_text' => "as'df",
+			'filter'         => false,
 		);
 		$old_instance = array();
 
@@ -163,4 +171,61 @@ class Wp_Is_Mobile_Text_Widget_Update_Test extends WP_UnitTestCase {
 
 		$this->assertEquals( $validate['is_mobile_text'], "as'df" );
 	}
+
+	/**
+	 * @test
+	 * @group update
+	 */
+	public function update_case_unfiltered_html() {
+		$user = $this->factory->user->create_and_get( array( 'role' => 'administrator' ) );
+		wp_set_current_user( $user->ID );
+
+		$new_instance = array(
+			'title'         => '',
+			'text'           => '<style></style>',
+			'is_mobile_text' => '<style></style>',
+			'filter'         => false,
+		);
+		$old_instance = array();
+
+		$validate = $this->wp_is_mobile_text_widget->update( $new_instance, $old_instance );
+
+		$this->assertEquals( $validate['text'], '<style></style>' );
+		$this->assertEquals( $validate['is_mobile_text'], '<style></style>' );
+
+
+		$user = $this->factory->user->create_and_get( array( 'role' => 'editor' ) );
+		wp_set_current_user( $user->ID );
+
+		$new_instance = array(
+			'title'         => '',
+			'text'           => '<style></style>',
+			'is_mobile_text' => '<style></style>',
+			'filter'         => false,
+		);
+		$old_instance = array();
+
+		$validate = $this->wp_is_mobile_text_widget->update( $new_instance, $old_instance );
+
+		$this->assertEquals( $validate['text'], '<style></style>' );
+		$this->assertEquals( $validate['is_mobile_text'], '<style></style>' );
+
+
+		$user = $this->factory->user->create_and_get( array( 'role' => 'author' ) );
+		wp_set_current_user( $user->ID );
+
+		$new_instance = array(
+			'title'         => '',
+			'text'           => '<style></style>',
+			'is_mobile_text' => '<style></style>',
+			'filter'         => false,
+		);
+		$old_instance = array();
+
+		$validate = $this->wp_is_mobile_text_widget->update( $new_instance, $old_instance );
+
+		$this->assertEquals( $validate['text'], '' );
+		$this->assertEquals( $validate['is_mobile_text'], '' );
+	}
+
 }
