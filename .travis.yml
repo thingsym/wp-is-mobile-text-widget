@@ -1,3 +1,5 @@
+sudo: false
+
 language: php
 
 notifications:
@@ -44,7 +46,6 @@ env:
 
 matrix:
   allow_failures:
-    - env: WP_VERSION=3.9 WP_MULTISITE=0
     - env: WP_VERSION=3.8 WP_MULTISITE=0
     - env: WP_VERSION=3.7 WP_MULTISITE=0
     - env: WP_VERSION=3.6 WP_MULTISITE=0
