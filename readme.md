@@ -39,6 +39,16 @@ Small patches and bug reports can be submitted a issue tracker in Github. Forkin
 
 ## Changelog
 
+* Version 1.0.3
+	* fix label
+	* update screenshot
+	* fix languages
+	* refactoring
+	* add PHPDoc comment
+	* add filters 'widget_text'
+	* add filters 'wp_is_mobile_text_widget_text' and 'wp_is_mobile_text_widget_is_mobile_true'
+	* fix tests
+	* fix .travis.yml
 * Version 1.0.2
 	* refactoring
 	* add phpunit and tests
