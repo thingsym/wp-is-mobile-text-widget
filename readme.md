@@ -6,7 +6,17 @@
 
 This WordPress plugin adds text widget that switched display text using wp_is_mobile() function whether the device is mobile or not.
 
+## Screenshot
+
 <img src="screenshot-1.png">
+
+## Installation
+
+1. Download and unzip files. Or install **WP Is Mobile Text Widget** using the WordPress plugin installer. In that case, skip 2.
+2. Upload **wp-is-mobile-text-widget** to the "/wp-content/plugins/" directory.
+3. Activate the plugin through the 'Plugins' menu in WordPress.
+4. Add the **WP Is Mobile Text** widget to a widget area and configure settings through the 'Widgets' menu in WordPress.
+5. Have fun!
 
 ### Filter Hooks
 
@@ -17,8 +27,7 @@ This WordPress plugin adds text widget that switched display text using wp_is_mo
 
 ## Test Matrix
 
-For operation compatibility between PHP version and WordPress version, see below
-[Travis CI](https://travis-ci.org/thingsym/wp-is-mobile-text-widget)
+For operation compatibility between PHP version and WordPress version, see below [Travis CI](https://travis-ci.org/thingsym/wp-is-mobile-text-widget)
 
 ## Contributing
 
@@ -27,15 +36,7 @@ For operation compatibility between PHP version and WordPress version, see below
 Small patches and bug reports can be submitted a issue tracker in Github. Forking on Github is another good way. You can send a pull request.
 
 * [wp-is-mobile-text-widget - GitHub](https://github.com/thingsym/wp-is-mobile-text-widget)
-* [wp-is-mobile-text-widget - WordPress Plugin](https://wordpress.org/plugins/wp-is-mobile-text-widget/)
-
-## Installation
-
-1. Download and unzip files. Or install **WP Is Mobile Text Widget** using the WordPress plugin installer. In that case, skip 2.
-2. Upload **wp-is-mobile-text-widget** to the "/wp-content/plugins/" directory.
-3. Activate the plugin through the 'Plugins' menu in WordPress.
-4. Add the **WP Is Mobile Text** widget to a widget area and configure settings through the 'Widgets' menu in WordPress.
-5. Have fun!
+* [WP Is Mobile Text Widget - WordPress Plugin](https://wordpress.org/plugins/wp-is-mobile-text-widget/)
 
 ## Changelog
 
