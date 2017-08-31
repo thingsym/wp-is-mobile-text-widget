@@ -49,7 +49,15 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	 * Default instance.
 	 *
 	 * @since 1.0.3
-	 * @var array
+	 *
+	 * @access protected
+	 *
+	 * @var array $default_instance {
+	 *     @var string $title
+	 *     @var string $text
+	 *     @var string $is_mobile_text
+	 *     @var string $filter
+	 * }
 	 */
 	protected $default_instance = array(
 		'title'          => '',
@@ -58,6 +66,14 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 		'filter'         => false,
 	);
 
+	/**
+	 * construct
+	 *
+	 * @since 1.0.0
+	 *
+	 * @access public
+	 *
+	 */
 	public function __construct() {
 		load_plugin_textdomain( 'wp-is-mobile-text-widget', false, basename( dirname( __FILE__ ) ) . '/languages' );
 
@@ -78,11 +94,13 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	 * Outputs the content for the current Text widget instance.
 	 *
 	 * @since 1.0.0
+	 *
 	 * @access public
 	 *
-	 * @param array $args     Display arguments including 'before_title', 'after_title',
-	 *                        'before_widget', and 'after_widget'.
+	 * @param array $args     Display arguments including 'before_title', 'after_title', 'before_widget', and 'after_widget'.
 	 * @param array $instance Settings for the current Text widget instance.
+	 *
+	 * @return void
 	 */
 	public function widget( $args, $instance ) {
 		$instance = array_merge( $this->default_instance, $instance );
@@ -139,12 +157,13 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	 * Handles updating settings for the current Text widget instance.
 	 *
 	 * @since 1.0.0
+	 *
 	 * @access public
 	 *
-	 * @param array $new_instance New settings for this instance as input by the user via
-	 *                            WP_Widget::form().
-	 * @param array $old_instance Old settings for this instance.
-	 * @return array Settings to save or bool false to cancel saving.
+	 * @param array  $new_instance  New settings for this instance as input by the user via  WP_Widget::form().
+	 * @param array  $old_instance  Old settings for this instance.
+	 *
+	 * @return array $instance      Settings to save or bool false to cancel saving.
 	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = array_merge( $this->default_instance, $old_instance );
@@ -169,9 +188,11 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	 * Outputs the Text widget settings form.
 	 *
 	 * @since 1.0.0
+	 *
 	 * @access public
 	 *
 	 * @param array $instance Current settings.
+	 *
 	 * @return void
 	 */
 	public function form( $instance ) {
