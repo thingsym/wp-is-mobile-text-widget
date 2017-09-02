@@ -35,6 +35,11 @@ if ( class_exists( 'WP_Is_Mobile_Text_Widget' ) ) {
 	add_action( 'widgets_init', 'wp_is_mobile_text_widget_load_widgets' );
 }
 
+/**
+ * Register WP_Is_Mobile_Text_Widget.
+ *
+ * @since 1.0.0
+ */
 function wp_is_mobile_text_widget_load_widgets() {
 	register_widget( 'WP_Is_Mobile_Text_Widget' );
 }
@@ -53,10 +58,10 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	 * @access protected
 	 *
 	 * @var array $default_instance {
-	 *     @var string $title
-	 *     @var string $text
-	 *     @var string $is_mobile_text
-	 *     @var string $filter
+	 *     @type string title
+	 *     @type string text
+	 *     @type string is_mobile_text
+	 *     @type string filter
 	 * }
 	 */
 	protected $default_instance = array(
@@ -67,12 +72,11 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	);
 
 	/**
-	 * construct
+	 * Constructor
 	 *
 	 * @since 1.0.0
 	 *
 	 * @access public
-	 *
 	 */
 	public function __construct() {
 		load_plugin_textdomain( 'wp-is-mobile-text-widget', false, basename( dirname( __FILE__ ) ) . '/languages' );
@@ -160,8 +164,8 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	 *
 	 * @access public
 	 *
-	 * @param array  $new_instance  New settings for this instance as input by the user via  WP_Widget::form().
-	 * @param array  $old_instance  Old settings for this instance.
+	 * @param array $new_instance  New settings for this instance as input by the user via  WP_Widget::form().
+	 * @param array $old_instance  Old settings for this instance.
 	 *
 	 * @return array $instance      Settings to save or bool false to cancel saving.
 	 */
