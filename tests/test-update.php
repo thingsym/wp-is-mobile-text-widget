@@ -115,7 +115,7 @@ class Test_Wp_Is_Mobile_Text_Widget_Update extends WP_UnitTestCase {
 		$validate = $this->wp_is_mobile_text_widget->update( $new_instance, array() );
 
 		$this->assertEquals( $validate, $expected );
-		$this->assertEquals( $validate['title'], $expected[ 'title' ] );
+		$this->assertEquals( $validate['title'], $expected['title'] );
 	}
 
 	/**
@@ -194,9 +194,11 @@ class Test_Wp_Is_Mobile_Text_Widget_Update extends WP_UnitTestCase {
 		}
 
 		wp_set_current_user(
-			$this->factory->user->create( array(
-				'role' => 'administrator',
-			) )
+			$this->factory->user->create(
+				array(
+					'role' => 'administrator',
+				)
+			)
 		);
 
 		$new_instance = array(
@@ -219,11 +221,12 @@ class Test_Wp_Is_Mobile_Text_Widget_Update extends WP_UnitTestCase {
 		$this->assertEquals( $validate['text'], '<style></style>' );
 		$this->assertEquals( $validate['is_mobile_text'], '<style></style>' );
 
-
 		wp_set_current_user(
-			$this->factory->user->create( array(
-				'role' => 'editor',
-			) )
+			$this->factory->user->create(
+				array(
+					'role' => 'editor',
+				)
+			)
 		);
 
 		$new_instance = array(
@@ -246,11 +249,12 @@ class Test_Wp_Is_Mobile_Text_Widget_Update extends WP_UnitTestCase {
 		$this->assertEquals( $validate['text'], '<style></style>' );
 		$this->assertEquals( $validate['is_mobile_text'], '<style></style>' );
 
-
 		wp_set_current_user(
-			$this->factory->user->create( array(
-				'role' => 'author',
-			) )
+			$this->factory->user->create(
+				array(
+					'role' => 'author',
+				)
+			)
 		);
 
 		$new_instance = array(
@@ -287,36 +291,11 @@ class Test_Wp_Is_Mobile_Text_Widget_Update extends WP_UnitTestCase {
 		}
 
 		wp_set_current_user(
-			$this->factory->user->create( array(
-				'role' => 'administrator',
-			) )
-		);
-
-		$new_instance = array(
-			'title'          => '',
-			'text'           => '<style></style>',
-			'is_mobile_text' => '<style></style>',
-			'filter'         => false,
-		);
-		$expected = array(
-			'title'          => '',
-			'text'           => wp_kses_post( '<style></style>' ),
-			'is_mobile_text' => wp_kses_post( '<style></style>' ),
-			'filter'         => false,
-		);
-
-		$validate = $this->wp_is_mobile_text_widget->update( $new_instance, array() );
-
-		$this->assertFalse( current_user_can( 'unfiltered_html' ) );
-		$this->assertEquals( $validate, $expected );
-		$this->assertEquals( $validate['text'], '' );
-		$this->assertEquals( $validate['is_mobile_text'], '' );
-
-
-		wp_set_current_user(
-			$this->factory->user->create( array(
-				'role' => 'editor',
-			) )
+			$this->factory->user->create(
+				array(
+					'role' => 'administrator',
+				)
+			)
 		);
 
 		$new_instance = array(
@@ -340,9 +319,39 @@ class Test_Wp_Is_Mobile_Text_Widget_Update extends WP_UnitTestCase {
 		$this->assertEquals( $validate['is_mobile_text'], '' );
 
 		wp_set_current_user(
-			$this->factory->user->create( array(
-				'role' => 'author',
-			) )
+			$this->factory->user->create(
+				array(
+					'role' => 'editor',
+				)
+			)
+		);
+
+		$new_instance = array(
+			'title'          => '',
+			'text'           => '<style></style>',
+			'is_mobile_text' => '<style></style>',
+			'filter'         => false,
+		);
+		$expected = array(
+			'title'          => '',
+			'text'           => wp_kses_post( '<style></style>' ),
+			'is_mobile_text' => wp_kses_post( '<style></style>' ),
+			'filter'         => false,
+		);
+
+		$validate = $this->wp_is_mobile_text_widget->update( $new_instance, array() );
+
+		$this->assertFalse( current_user_can( 'unfiltered_html' ) );
+		$this->assertEquals( $validate, $expected );
+		$this->assertEquals( $validate['text'], '' );
+		$this->assertEquals( $validate['is_mobile_text'], '' );
+
+		wp_set_current_user(
+			$this->factory->user->create(
+				array(
+					'role' => 'author',
+				)
+			)
 		);
 
 		$new_instance = array(
