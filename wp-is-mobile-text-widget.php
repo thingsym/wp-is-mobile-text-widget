@@ -138,9 +138,15 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 		$is_mobile_text = apply_filters( 'wp_is_mobile_text_widget_is_mobile_true', $is_mobile_text, $instance, $this );
 
 		if ( function_exists( 'wp_is_mobile' ) && wp_is_mobile() ) {
+			if ( empty( $is_mobile_text ) ) {
+				return;
+			}
 			$text = empty( $instance['filter'] ) ? $is_mobile_text : wpautop( $is_mobile_text );
 		}
 		else {
+			if ( empty( $text ) ) {
+				return;
+			}
 			$text = empty( $instance['filter'] ) ? $text : wpautop( $text );
 		}
 
