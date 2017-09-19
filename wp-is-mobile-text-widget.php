@@ -172,15 +172,15 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance = array_merge( $this->default_instance, $old_instance );
 
-		$instance['title'] = sanitize_text_field( $new_instance['title'] );
+		$instance['title'] = empty( $new_instance['title'] ) ? '' : sanitize_text_field( $new_instance['title'] );
 
 		if ( current_user_can( 'unfiltered_html' ) ) {
-			$instance['text'] = $new_instance['text'];
-			$instance['is_mobile_text'] = $new_instance['is_mobile_text'];
+			$instance['text'] = empty( $new_instance['text'] ) ? '' : $new_instance['text'];
+			$instance['is_mobile_text'] = empty( $new_instance['is_mobile_text'] ) ? '' : $new_instance['is_mobile_text'];
 		}
 		else {
-			$instance['text'] = wp_kses_post( $new_instance['text'] );
-			$instance['is_mobile_text'] = wp_kses_post( $new_instance['is_mobile_text'] );
+			$instance['text'] = empty( $new_instance['text'] ) ? '' : wp_kses_post( $new_instance['text'] );
+			$instance['is_mobile_text'] = empty( $new_instance['is_mobile_text'] ) ? '' : wp_kses_post( $new_instance['is_mobile_text'] );
 		}
 
 		$instance['filter'] = empty( $new_instance['filter'] ) ? false : true;
