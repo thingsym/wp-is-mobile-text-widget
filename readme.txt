@@ -5,7 +5,8 @@ Link: https://github.com/thingsym/wp-is-mobile-text-widget
 Tags: widget, text, mobile
 Requires at least: 3.7
 Tested up to: 4.8
-Stable tag: 1.0.3
+Requires PHP: 5.3
+Stable tag: 1.0.4
 License: GPL2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -48,6 +49,13 @@ Small patches and bug reports can be submitted a issue tracker in Github. Forkin
 5. Have fun!
 
 == Changelog ==
+
+= 1.0.4 =
+* return noting in case empty text
+* fix $instance value in case none $new_instance
+* fix PHPDoc
+* fix codesniffer.ruleset.xml
+* fix tests
 
 = 1.0.3 =
 * fix label
