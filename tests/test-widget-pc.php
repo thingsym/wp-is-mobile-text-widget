@@ -27,11 +27,13 @@ class Test_Wp_Is_Mobile_Text_Widget_Widget_Pc extends WP_UnitTestCase {
 			'filter'         => false,
 		);
 
-		$this->expectOutputRegex( '#<aside id="wp_is_mobile_text-1" class="widget widget_is_mobile_text">#' );
-		$this->expectOutputRegex( '#<h3 class="widget-title">aaaaa</h3>#' );
-		$this->expectOutputRegex( '#<div class="textwidget wp-is-mobile-text-widget">bbbbb</div>#' );
-
+		ob_start();
 		$this->wp_is_mobile_text_widget->widget( $args, $instance );
+		$widget = ob_get_clean();
+
+		$this->assertRegExp( '#<aside id="wp_is_mobile_text-1" class="widget_text widget widget_is_mobile_text">#', $widget );
+		$this->assertRegExp( '#<h3 class="widget-title">aaaaa</h3>#', $widget );
+		$this->assertRegExp( '#<div class="textwidget wp-is-mobile-text-widget">bbbbb</div>#', $widget );
 	}
 
 	/**
@@ -54,10 +56,12 @@ class Test_Wp_Is_Mobile_Text_Widget_Widget_Pc extends WP_UnitTestCase {
 			'filter'         => false,
 		);
 
-		$this->expectOutputRegex( '#<h3 class="widget-title">aaaaa</h3>#' );
-		$this->expectOutputRegex( '#<div class="textwidget wp-is-mobile-text-widget">bbb<br>bb</div>#' );
-
+		ob_start();
 		$this->wp_is_mobile_text_widget->widget( $args, $instance );
+		$widget = ob_get_clean();
+
+		$this->assertRegExp( '#<h3 class="widget-title">aaaaa</h3>#', $widget );
+		$this->assertRegExp( '#<div class="textwidget wp-is-mobile-text-widget">bbb<br>bb</div>#', $widget );
 	}
 
 	/**
@@ -84,10 +88,12 @@ class Test_Wp_Is_Mobile_Text_Widget_Widget_Pc extends WP_UnitTestCase {
 			'is_mobile_text' => wpautop( "ccc<br>\n\nsss<br>ss" ),
 		);
 
-		$this->expectOutputRegex( '#<h3 class="widget-title">aaaaa</h3>#' );
-		$this->expectOutputRegex( '#<div class="textwidget wp-is-mobile-text-widget">' . $expected['text'] . '</div>#' );
-
+		ob_start();
 		$this->wp_is_mobile_text_widget->widget( $args, $instance );
+		$widget = ob_get_clean();
+
+		$this->assertRegExp( '#<h3 class="widget-title">aaaaa</h3>#', $widget );
+		$this->assertRegExp( '#<div class="textwidget wp-is-mobile-text-widget">' . $expected['text'] . '</div>#', $widget );
 	}
 
 	/**
@@ -113,10 +119,12 @@ class Test_Wp_Is_Mobile_Text_Widget_Widget_Pc extends WP_UnitTestCase {
 		add_filter( 'widget_title', array( $this, '_filter_test' ) );
 		add_filter( 'widget_text', array( $this, '_filter_test' ) );
 
-		$this->expectOutputRegex( '#<h3 class="widget-title">via filter</h3>#' );
-		$this->expectOutputRegex( '#<div class="textwidget wp-is-mobile-text-widget">via filter</div>#' );
-
+		ob_start();
 		$this->wp_is_mobile_text_widget->widget( $args, $instance );
+		$widget = ob_get_clean();
+
+		$this->assertRegExp( '#<h3 class="widget-title">via filter</h3>#', $widget );
+		$this->assertRegExp( '#<div class="textwidget wp-is-mobile-text-widget">via filter</div>#', $widget );
 	}
 
 	/**
@@ -141,9 +149,11 @@ class Test_Wp_Is_Mobile_Text_Widget_Widget_Pc extends WP_UnitTestCase {
 
 		add_filter( 'wp_is_mobile_text_widget_text', array( $this, '_filter_test' ) );
 
-		$this->expectOutputRegex( '#<div class="textwidget wp-is-mobile-text-widget">via filter</div>#' );
-
+		ob_start();
 		$this->wp_is_mobile_text_widget->widget( $args, $instance );
+		$widget = ob_get_clean();
+
+		$this->assertRegExp( '#<div class="textwidget wp-is-mobile-text-widget">via filter</div>#', $widget );
 	}
 
 	public function _filter_test() {

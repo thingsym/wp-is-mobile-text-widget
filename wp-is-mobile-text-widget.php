@@ -3,7 +3,7 @@
  * Plugin Name: WP Is Mobile Text Widget
  * Plugin URI: https://github.com/thingsym/wp-is-mobile-text-widget
  * Description: This WordPress plugin adds text widget that switched display text using wp_is_mobile() function whether the device is mobile or not.
- * Version: 1.0.3
+ * Version: 1.0.4
  * Author: thingsym
  * Author URI: https://www.thingslabo.com/
  * License: GPLv2 or later
@@ -35,6 +35,11 @@ if ( class_exists( 'WP_Is_Mobile_Text_Widget' ) ) {
 	add_action( 'widgets_init', 'wp_is_mobile_text_widget_load_widgets' );
 }
 
+/**
+ * Register WP_Is_Mobile_Text_Widget.
+ *
+ * @since 1.0.0
+ */
 function wp_is_mobile_text_widget_load_widgets() {
 	register_widget( 'WP_Is_Mobile_Text_Widget' );
 }
@@ -49,7 +54,15 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	 * Default instance.
 	 *
 	 * @since 1.0.3
-	 * @var array
+	 *
+	 * @access protected
+	 *
+	 * @var array $default_instance {
+	 *     @type string title
+	 *     @type string text
+	 *     @type string is_mobile_text
+	 *     @type string filter
+	 * }
 	 */
 	protected $default_instance = array(
 		'title'          => '',
@@ -58,6 +71,13 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 		'filter'         => false,
 	);
 
+	/**
+	 * Constructor
+	 *
+	 * @since 1.0.0
+	 *
+	 * @access public
+	 */
 	public function __construct() {
 		load_plugin_textdomain( 'wp-is-mobile-text-widget', false, basename( dirname( __FILE__ ) ) . '/languages' );
 
@@ -78,11 +98,13 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	 * Outputs the content for the current Text widget instance.
 	 *
 	 * @since 1.0.0
+	 *
 	 * @access public
 	 *
-	 * @param array $args     Display arguments including 'before_title', 'after_title',
-	 *                        'before_widget', and 'after_widget'.
+	 * @param array $args     Display arguments including 'before_title', 'after_title', 'before_widget', and 'after_widget'.
 	 * @param array $instance Settings for the current Text widget instance.
+	 *
+	 * @return void
 	 */
 	public function widget( $args, $instance ) {
 		$instance = array_merge( $this->default_instance, $instance );
@@ -116,9 +138,15 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 		$is_mobile_text = apply_filters( 'wp_is_mobile_text_widget_is_mobile_true', $is_mobile_text, $instance, $this );
 
 		if ( function_exists( 'wp_is_mobile' ) && wp_is_mobile() ) {
+			if ( empty( $is_mobile_text ) ) {
+				return;
+			}
 			$text = empty( $instance['filter'] ) ? $is_mobile_text : wpautop( $is_mobile_text );
 		}
 		else {
+			if ( empty( $text ) ) {
+				return;
+			}
 			$text = empty( $instance['filter'] ) ? $text : wpautop( $text );
 		}
 
@@ -139,25 +167,26 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	 * Handles updating settings for the current Text widget instance.
 	 *
 	 * @since 1.0.0
+	 *
 	 * @access public
 	 *
-	 * @param array $new_instance New settings for this instance as input by the user via
-	 *                            WP_Widget::form().
-	 * @param array $old_instance Old settings for this instance.
-	 * @return array Settings to save or bool false to cancel saving.
+	 * @param array $new_instance  New settings for this instance as input by the user via  WP_Widget::form().
+	 * @param array $old_instance  Old settings for this instance.
+	 *
+	 * @return array $instance      Settings to save or bool false to cancel saving.
 	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = array_merge( $this->default_instance, $old_instance );
 
-		$instance['title'] = sanitize_text_field( $new_instance['title'] );
+		$instance['title'] = empty( $new_instance['title'] ) ? '' : sanitize_text_field( $new_instance['title'] );
 
 		if ( current_user_can( 'unfiltered_html' ) ) {
-			$instance['text'] = $new_instance['text'];
-			$instance['is_mobile_text'] = $new_instance['is_mobile_text'];
+			$instance['text'] = empty( $new_instance['text'] ) ? '' : $new_instance['text'];
+			$instance['is_mobile_text'] = empty( $new_instance['is_mobile_text'] ) ? '' : $new_instance['is_mobile_text'];
 		}
 		else {
-			$instance['text'] = wp_kses_post( $new_instance['text'] );
-			$instance['is_mobile_text'] = wp_kses_post( $new_instance['is_mobile_text'] );
+			$instance['text'] = empty( $new_instance['text'] ) ? '' : wp_kses_post( $new_instance['text'] );
+			$instance['is_mobile_text'] = empty( $new_instance['is_mobile_text'] ) ? '' : wp_kses_post( $new_instance['is_mobile_text'] );
 		}
 
 		$instance['filter'] = empty( $new_instance['filter'] ) ? false : true;
@@ -169,9 +198,11 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	 * Outputs the Text widget settings form.
 	 *
 	 * @since 1.0.0
+	 *
 	 * @access public
 	 *
 	 * @param array $instance Current settings.
+	 *
 	 * @return void
 	 */
 	public function form( $instance ) {

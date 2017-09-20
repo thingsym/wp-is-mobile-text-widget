@@ -1,6 +1,6 @@
 <?php
 
-class Test_Wp_Is_Mobile_Text_Widget_Construct extends WP_UnitTestCase {
+class Test_Wp_Is_Mobile_Text_Widget_Constructor extends WP_UnitTestCase {
 
 	public function setUp() {
 		parent::setUp();
@@ -9,9 +9,9 @@ class Test_Wp_Is_Mobile_Text_Widget_Construct extends WP_UnitTestCase {
 
 	/**
 	 * @test
-	 * @group construct
+	 * @group constructor
 	 */
-	public function construct_case() {
+	public function constructor_case() {
 		$this->assertEquals( 'wp_is_mobile_text', $this->wp_is_mobile_text_widget->id_base );
 		$this->assertEquals( 'WP Is Mobile Text', $this->wp_is_mobile_text_widget->name );
 

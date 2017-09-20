@@ -5,7 +5,8 @@ Link: https://github.com/thingsym/wp-is-mobile-text-widget
 Tags: widget, text, mobile
 Requires at least: 3.7
 Tested up to: 4.8
-Stable tag: 1.0.3
+Requires PHP: 5.3
+Stable tag: 1.0.4
 License: GPL2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,8 +25,7 @@ This WordPress plugin adds text widget that switched display text using wp_is_mo
 
 = Test Matrix =
 
-For operation compatibility between PHP version and WordPress version, see below
-[Travis CI](https://travis-ci.org/thingsym/wp-is-mobile-text-widget)
+For operation compatibility between PHP version and WordPress version, see below [Travis CI](https://travis-ci.org/thingsym/wp-is-mobile-text-widget)
 
 = Contributing =
 
@@ -34,7 +34,7 @@ For operation compatibility between PHP version and WordPress version, see below
 Small patches and bug reports can be submitted a issue tracker in Github. Forking on Github is another good way. You can send a pull request.
 
 * [wp-is-mobile-text-widget - GitHub](https://github.com/thingsym/wp-is-mobile-text-widget)
-* [wp-is-mobile-text-widget - WordPress Plugin](https://wordpress.org/plugins/wp-is-mobile-text-widget/)
+* [WP Is Mobile Text Widget - WordPress Plugin](https://wordpress.org/plugins/wp-is-mobile-text-widget/)
 
 == Screenshots ==
 
@@ -50,25 +50,35 @@ Small patches and bug reports can be submitted a issue tracker in Github. Forkin
 
 == Changelog ==
 
+= 1.0.4 =
+* return noting in case empty text
+* fix $instance value in case none $new_instance
+* fix PHPDoc
+* fix codesniffer.ruleset.xml
+* fix tests
+
 = 1.0.3 =
-	* fix label
-	* update screenshot
-	* fix languages
-	* refactoring
-	* add PHPDoc comment
-	* add filters 'widget_text'
-	* add filters 'wp_is_mobile_text_widget_text' and 'wp_is_mobile_text_widget_is_mobile_true'
-	* fix tests
-	* fix .travis.yml
+* fix label
+* update screenshot
+* fix languages
+* refactoring
+* add PHPDoc comment
+* add filters 'widget_text'
+* add filters 'wp_is_mobile_text_widget_text' and 'wp_is_mobile_text_widget_is_mobile_true'
+* fix tests
+* fix .travis.yml
+
 = 1.0.2 =
-  * refactoring
-  * add phpunit and tests
+* refactoring
+* add phpunit and tests
+
 = 1.0.1 =
-  * clean up source by the PHP_CodeSniffer
+* clean up source by the PHP_CodeSniffer
+
 = 1.0.0 =
-  * initial release
+* initial release
 
 == Upgrade Notice ==
 
 = 1.0.3 =
-	* Requires at least version 3.7 of the Wordpress
+* Requires at least version 3.7 of the Wordpress
