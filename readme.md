@@ -40,6 +40,12 @@ Small patches and bug reports can be submitted a issue tracker in Github. Forkin
 
 ## Changelog
 
+* Version 1.0.4
+	* return noting in case empty text
+	* fix $instance value in case none $new_instance
+	* fix PHPDoc
+	* fix codesniffer.ruleset.xml
+	* fix tests
 * Version 1.0.3
 	* fix label
 	* update screenshot
