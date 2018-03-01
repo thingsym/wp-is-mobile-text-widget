@@ -25,18 +25,27 @@ This WordPress plugin adds text widget that switched display text using wp_is_mo
 * `wp_is_mobile_text_widget_text` - Filters the content of the Text widget when wp_is_mobile is false.
 * `wp_is_mobile_text_widget_is_mobile_true` - Filters the content of the Text widget when wp_is_mobile is true.
 
+## WordPress Plugin Directory
+
+WP Is Mobile Text Widget is hosted on the WordPress Plugin Directory.
+
+[https://wordpress.org/plugins/wp-is-mobile-text-widget/](https://wordpress.org/plugins/wp-is-mobile-text-widget/)
+
 ## Test Matrix
 
 For operation compatibility between PHP version and WordPress version, see below [Travis CI](https://travis-ci.org/thingsym/wp-is-mobile-text-widget)
 
-## Contributing
+## Contribution
 
 ### Patches and Bug Fixes
 
 Small patches and bug reports can be submitted a issue tracker in Github. Forking on Github is another good way. You can send a pull request.
 
-* [wp-is-mobile-text-widget - GitHub](https://github.com/thingsym/wp-is-mobile-text-widget)
-* [WP Is Mobile Text Widget - WordPress Plugin](https://wordpress.org/plugins/wp-is-mobile-text-widget/)
+1. Fork [WP Is Mobile Text Widget](https://github.com/thingsym/wp-is-mobile-text-widget) from GitHub repository
+2. Create a feature branch: git checkout -b my-new-feature
+3. Commit your changes: git commit -am 'Add some feature'
+4. Push to the branch: git push origin my-new-feature
+5. Create new Pull Request
 
 ## Changelog
 
@@ -68,3 +77,7 @@ Small patches and bug reports can be submitted a issue tracker in Github. Forkin
 
 * Version 1.0.3
 	* Requires at least version 3.7 of the Wordpress
+
+## License
+
+Licensed under [GPLv2](https://www.gnu.org/licenses/gpl-2.0.html).
