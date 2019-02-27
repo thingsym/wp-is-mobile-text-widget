@@ -81,9 +81,9 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	public function __construct() {
 		load_plugin_textdomain( 'wp-is-mobile-text-widget', false, basename( dirname( __FILE__ ) ) . '/languages' );
 
-		$widget_options = array(
-			'classname'   => 'widget_is_mobile_text',
-			'description' => __( 'Arbitrary text or HTML.', 'wp-is-mobile-text-widget' ),
+		$widget_options  = array(
+			'classname'                   => 'widget_is_mobile_text',
+			'description'                 => __( 'Arbitrary text or HTML.', 'wp-is-mobile-text-widget' ),
 			'customize_selective_refresh' => true,
 		);
 		$control_options = array(
@@ -112,7 +112,7 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 		$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
 
 		/** This filter is documented in wp-includes/widgets/class-wp-widget-text.php */
-		$text = apply_filters( 'widget_text', $instance['text'], $instance, $this );
+		$text           = apply_filters( 'widget_text', $instance['text'], $instance, $this );
 		$is_mobile_text = apply_filters( 'widget_text', $instance['is_mobile_text'], $instance, $this );
 
 		/**
@@ -173,7 +173,7 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	 * @param array $new_instance  New settings for this instance as input by the user via  WP_Widget::form().
 	 * @param array $old_instance  Old settings for this instance.
 	 *
-	 * @return array $instance      Settings to save or bool false to cancel saving.
+	 * @return array $instance     Settings to save or bool false to cancel saving.
 	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = array_merge( $this->default_instance, $old_instance );
@@ -181,11 +181,11 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 		$instance['title'] = empty( $new_instance['title'] ) ? '' : sanitize_text_field( $new_instance['title'] );
 
 		if ( current_user_can( 'unfiltered_html' ) ) {
-			$instance['text'] = empty( $new_instance['text'] ) ? '' : $new_instance['text'];
+			$instance['text']           = empty( $new_instance['text'] ) ? '' : $new_instance['text'];
 			$instance['is_mobile_text'] = empty( $new_instance['is_mobile_text'] ) ? '' : $new_instance['is_mobile_text'];
 		}
 		else {
-			$instance['text'] = empty( $new_instance['text'] ) ? '' : wp_kses_post( $new_instance['text'] );
+			$instance['text']           = empty( $new_instance['text'] ) ? '' : wp_kses_post( $new_instance['text'] );
 			$instance['is_mobile_text'] = empty( $new_instance['is_mobile_text'] ) ? '' : wp_kses_post( $new_instance['is_mobile_text'] );
 		}
 
@@ -207,7 +207,7 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	 */
 	public function form( $instance ) {
 		$instance = wp_parse_args( (array) $instance, $this->default_instance );
-?>
+		?>
 		<p><label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'wp-is-mobile-text-widget' ); ?></label>
 		<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>" /></p>
 
@@ -217,8 +217,8 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 		<?php if ( ! current_user_can( 'unfiltered_html' ) ) : ?>
 			<?php
 			$probably_unsafe_html = array( 'script', 'iframe', 'form', 'input', 'style' );
-			$allowed_html = wp_kses_allowed_html( 'post' );
-			$disallowed_html = array_diff( $probably_unsafe_html, array_keys( $allowed_html ) );
+			$allowed_html         = wp_kses_allowed_html( 'post' );
+			$disallowed_html      = array_diff( $probably_unsafe_html, array_keys( $allowed_html ) );
 			?>
 			<?php if ( ! empty( $disallowed_html ) ) : ?>
 				<p>
@@ -234,8 +234,8 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 		<?php if ( ! current_user_can( 'unfiltered_html' ) ) : ?>
 			<?php
 			$probably_unsafe_html = array( 'script', 'iframe', 'form', 'input', 'style' );
-			$allowed_html = wp_kses_allowed_html( 'post' );
-			$disallowed_html = array_diff( $probably_unsafe_html, array_keys( $allowed_html ) );
+			$allowed_html         = wp_kses_allowed_html( 'post' );
+			$disallowed_html      = array_diff( $probably_unsafe_html, array_keys( $allowed_html ) );
 			?>
 			<?php if ( ! empty( $disallowed_html ) ) : ?>
 				<p>
@@ -247,6 +247,6 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 
 		<p><input id="<?php echo esc_attr( $this->get_field_id( 'filter' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'filter' ) ); ?>" type="checkbox"<?php checked( isset( $instance['filter'] ) ? $instance['filter'] : 0 ); ?> /> <label for="<?php echo esc_attr( $this->get_field_id( 'filter' ) ); ?>"><?php esc_html_e( 'Automatically add paragraphs', 'wp-is-mobile-text-widget' ); ?></label></p>
 
-<?php
+		<?php
 	}
 }
