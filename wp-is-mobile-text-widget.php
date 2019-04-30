@@ -7,6 +7,7 @@
  * Author: thingsym
  * Author URI: https://www.thingslabo.com/
  * License: GPLv2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: wp-is-mobile-text-widget
  * Domain Path: /languages
  *
