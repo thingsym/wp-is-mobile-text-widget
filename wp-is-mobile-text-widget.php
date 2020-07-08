@@ -55,7 +55,7 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	);
 
 	/**
-	 * Constructor
+	 * Sets up a new widget instance.
 	 *
 	 * @since 1.0.0
 	 *
@@ -78,16 +78,15 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	}
 
 	/**
-	 * Outputs the content for the current Text widget instance.
+	 * Outputs the content for the widget instance.
 	 *
 	 * @since 1.0.0
 	 *
 	 * @access public
 	 *
-	 * @param array $args     Display arguments including 'before_title', 'after_title', 'before_widget', and 'after_widget'.
-	 * @param array $instance Settings for the current Text widget instance.
-	 *
-	 * @return void
+	 * @param array $args     Display arguments including 'before_title', 'after_title',
+	 *                        'before_widget', and 'after_widget'.
+	 * @param array $instance Settings for the current widget instance.
 	 */
 	public function widget( $args, $instance ) {
 		$instance = array_merge( $this->default_instance, $instance );
@@ -147,16 +146,16 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	}
 
 	/**
-	 * Handles updating settings for the current Text widget instance.
+	 * Handles updating settings for the current widget instance.
 	 *
 	 * @since 1.0.0
 	 *
 	 * @access public
 	 *
-	 * @param array $new_instance  New settings for this instance as input by the user via  WP_Widget::form().
-	 * @param array $old_instance  Old settings for this instance.
+	 * @param array $new_instance New settings for this instance as input by the user via form() method.
+	 * @param array $old_instance Old settings for this instance.
 	 *
-	 * @return array $instance     Settings to save or bool false to cancel saving.
+	 * @return array Updated settings to save.
 	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = array_merge( $this->default_instance, $old_instance );
@@ -178,7 +177,7 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	}
 
 	/**
-	 * Outputs the Text widget settings form.
+	 * Outputs the settings form for the widget.
 	 *
 	 * @since 1.0.0
 	 *
