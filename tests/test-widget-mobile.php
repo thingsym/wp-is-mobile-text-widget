@@ -1,6 +1,5 @@
 <?php
 class Test_Wp_Is_Mobile_Text_Widget_Widget_Mobile extends WP_UnitTestCase {
-	protected $backupGlobalsBlacklist = array( 'wpdb', 'wp_query', 'post' );
 
 	public function setUp() {
 		parent::setUp();
@@ -11,7 +10,6 @@ class Test_Wp_Is_Mobile_Text_Widget_Widget_Mobile extends WP_UnitTestCase {
 	 * @test
 	 * @group widget
 	 * @group mobile
-	 * @backupGlobals enabled
 	 */
 	public function widget_case_mobile_1() {
 		$args = array(
@@ -42,7 +40,6 @@ class Test_Wp_Is_Mobile_Text_Widget_Widget_Mobile extends WP_UnitTestCase {
 	 * @test
 	 * @group widget
 	 * @group mobile
-	 * @backupGlobals enabled
 	 */
 	public function widget_case_mobile_2() {
 		$args = array(
@@ -72,7 +69,6 @@ class Test_Wp_Is_Mobile_Text_Widget_Widget_Mobile extends WP_UnitTestCase {
 	 * @test
 	 * @group widget
 	 * @group mobile
-	 * @backupGlobals enabled
 	 */
 	public function widget_case_mobile_filter() {
 		$args = array(
@@ -106,7 +102,6 @@ class Test_Wp_Is_Mobile_Text_Widget_Widget_Mobile extends WP_UnitTestCase {
 	 * @test
 	 * @group widget
 	 * @group mobile
-	 * @backupGlobals enabled
 	 */
 	public function widget_case_mobile_filters() {
 		$args = array(
@@ -139,7 +134,6 @@ class Test_Wp_Is_Mobile_Text_Widget_Widget_Mobile extends WP_UnitTestCase {
 	 * @test
 	 * @group widget
 	 * @group mobile
-	 * @backupGlobals enabled
 	 */
 	public function widget_case_mobile_filters_wp_is_mobile_text_widget_is_mobile_true() {
 		$args = array(

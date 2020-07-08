@@ -1,6 +1,5 @@
 <?php
 class Test_Wp_Is_Mobile_Text_Widget_Widget_Pc extends WP_UnitTestCase {
-	protected $backupGlobalsBlacklist = array( 'wpdb', 'wp_query', 'post' );
 
 	public function setUp() {
 			parent::setUp();
@@ -11,7 +10,6 @@ class Test_Wp_Is_Mobile_Text_Widget_Widget_Pc extends WP_UnitTestCase {
 	 * @test
 	 * @group widget
 	 * @group pc
-	 * @backupGlobals enabled
 	 */
 	public function widget_case_pc_1() {
 		$args = array(
@@ -40,7 +38,6 @@ class Test_Wp_Is_Mobile_Text_Widget_Widget_Pc extends WP_UnitTestCase {
 	 * @test
 	 * @group widget
 	 * @group pc
-	 * @backupGlobals enabled
 	 */
 	public function widget_case_pc_2() {
 		$args = array(
@@ -68,7 +65,6 @@ class Test_Wp_Is_Mobile_Text_Widget_Widget_Pc extends WP_UnitTestCase {
 	 * @test
 	 * @group widget
 	 * @group pc
-	 * @backupGlobals enabled
 	 */
 	public function widget_case_pc_filter() {
 		$args = array(
@@ -100,7 +96,6 @@ class Test_Wp_Is_Mobile_Text_Widget_Widget_Pc extends WP_UnitTestCase {
 	 * @test
 	 * @group widget
 	 * @group pc
-	 * @backupGlobals enabled
 	 */
 	public function widget_case_pc_filters() {
 		$args = array(
@@ -131,7 +126,6 @@ class Test_Wp_Is_Mobile_Text_Widget_Widget_Pc extends WP_UnitTestCase {
 	 * @test
 	 * @group widget
 	 * @group pc
-	 * @backupGlobals enabled
 	 */
 	public function widget_case_pc_filters_wp_is_mobile_text_widget_text() {
 		$args = array(
