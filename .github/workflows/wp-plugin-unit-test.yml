@@ -64,3 +64,6 @@ jobs:
 
       - name: Run PHPUnit - WordPress ${{ matrix.wordpress }}
         run: phpunit
+
+      - name: Run PHPUnit - group mobile
+        run: phpunit --group mobile
