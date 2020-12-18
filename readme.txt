@@ -4,7 +4,7 @@ Contributors: thingsym
 Link: https://github.com/thingsym/wp-is-mobile-text-widget
 Tags: widget, text, mobile
 Stable tag: 1.0.5
-Tested up to: 5.4.2
+Tested up to: 5.6.0
 Requires at least: 3.7
 Requires PHP: 5.3
 License: GPL2 or later
@@ -25,7 +25,7 @@ This WordPress plugin adds text widget that switched display text using wp_is_mo
 
 = Test Matrix =
 
-For operation compatibility between PHP version and WordPress version, see below [Travis CI](https://travis-ci.org/thingsym/wp-is-mobile-text-widget)
+For operation compatibility between PHP version and WordPress version, see below [Github Actions](https://github.com/thingsym/wp-is-mobile-text-widget/actions).
 
 = Contributing =
 
