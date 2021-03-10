@@ -135,13 +135,17 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 		// Inject the Text widget's container class name alongside this widget's class name for theme styling compatibility.
 		$args['before_widget'] = preg_replace( '/(?<=\sclass=["\'])/', 'widget_text ', $args['before_widget'] );
 
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo $args['before_widget'];
 		if ( ! empty( $title ) ) {
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo $args['before_title'] . $title . $args['after_title'];
 		}
 		echo '<div class="textwidget wp-is-mobile-text-widget">';
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo $text;
 		echo '</div>';
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo $args['after_widget'];
 	}
 
@@ -205,7 +209,7 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 			<?php if ( ! empty( $disallowed_html ) ) : ?>
 				<p>
 					<?php esc_html_e( 'Some HTML tags are not permitted, including:', 'wp-is-mobile-text-widget' ); ?>
-					<code><?php echo join( '</code>, <code>', $disallowed_html ); ?></code>
+					<code><?php echo join( '</code>, <code>', $disallowed_html ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></code>
 				</p>
 			<?php endif; ?>
 		<?php endif; ?>
@@ -222,7 +226,7 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 			<?php if ( ! empty( $disallowed_html ) ) : ?>
 				<p>
 					<?php esc_html_e( 'Some HTML tags are not permitted, including:', 'wp-is-mobile-text-widget' ); ?>
-					<code><?php echo join( '</code>, <code>', $disallowed_html ); ?></code>
+					<code><?php echo join( '</code>, <code>', $disallowed_html ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></code>
 				</p>
 			<?php endif; ?>
 		<?php endif; ?>
