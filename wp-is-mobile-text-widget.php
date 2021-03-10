@@ -63,6 +63,7 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	 */
 	public function __construct() {
 		load_plugin_textdomain( 'wp-is-mobile-text-widget', false, basename( dirname( __FILE__ ) ) . '/languages' );
+		add_filter( 'plugin_row_meta', array( $this, 'plugin_metadata_links' ), 10, 2 );
 
 		$widget_options  = array(
 			'classname'                   => 'widget_is_mobile_text',
@@ -234,5 +235,29 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 		<p><input id="<?php echo esc_attr( $this->get_field_id( 'filter' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'filter' ) ); ?>" type="checkbox"<?php checked( isset( $instance['filter'] ) ? $instance['filter'] : 0 ); ?> /> <label for="<?php echo esc_attr( $this->get_field_id( 'filter' ) ); ?>"><?php esc_html_e( 'Automatically add paragraphs', 'wp-is-mobile-text-widget' ); ?></label></p>
 
 		<?php
+	}
+
+	/**
+	 * Set links below a plugin on the Plugins page.
+	 *
+	 * Hooks to plugin_row_meta
+	 *
+	 * @see https://developer.wordpress.org/reference/hooks/plugin_row_meta/
+	 *
+	 * @access public
+	 *
+	 * @param array  $links  An array of the plugin's metadata.
+	 * @param string $file   Path to the plugin file relative to the plugins directory.
+	 *
+	 * @return array $links
+	 *
+	 * @since 1.1.0
+	 */
+	public function plugin_metadata_links( $links, $file ) {
+		if ( $file == plugin_basename( __FILE__ ) ) {
+			$links[] = '<a href="https://github.com/sponsors/thingsym">' . __( 'Become a sponsor', 'wp-is-mobile-text-widget' ) . '</a>';
+		}
+
+		return $links;
 	}
 }
