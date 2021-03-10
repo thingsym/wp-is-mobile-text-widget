@@ -27,6 +27,9 @@
       "@phpcs",
       "@phpmd",
       "@phpstan"
-    ]
+    ],
+    "makepot:php": "php /usr/local/share/wp-i18n/makepot.php wp-plugin ../wp-is-mobile-text-widget ../wp-is-mobile-text-widget/languages/wp-is-mobile-text-widget.pot",
+    "makepot:wpcli": "wp i18n make-pot ./ ./languages/wp-is-mobile-text-widget.pot --exclude=dist,bin,tests,node_modules,vendor",
+    "msgfmt:ja": "msgfmt languages/wp-is-mobile-text-widget-ja.po -o languages/wp-is-mobile-text-widget-ja.mo"
   }
 }
