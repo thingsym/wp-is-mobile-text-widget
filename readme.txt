@@ -4,7 +4,7 @@ Contributors: thingsym
 Link: https://github.com/thingsym/wp-is-mobile-text-widget
 Donate link: https://github.com/sponsors/thingsym
 Tags: widget, text, mobile
-Stable tag: 1.0.5
+Stable tag: 1.1.0
 Tested up to: 5.7.0
 Requires at least: 3.7
 Requires PHP: 5.3
@@ -50,6 +50,19 @@ Small patches and bug reports can be submitted a issue tracker in Github. Forkin
 5. Have fun!
 
 == Changelog ==
+
+= 1.1.0 =
+* tested up to 5.7.0
+* add test case
+* disable direct file access
+* add load_textdomain method
+* add sponsor link
+* update japanese translation
+* update pot
+* add FUNDING.yml
+* add donate link
+* update wordpress-test-matrix
+* add GitHub actions for CI/CD, remove .travis.yml
 
 = 1.0.5 =
 * fix indent and reformat with phpcs and phpcbf
