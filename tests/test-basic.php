@@ -12,6 +12,9 @@ class Test_Wp_Is_Mobile_Text_Widget_Basic extends WP_UnitTestCase {
 	 * @group basic
 	 */
 	public function constructor_case() {
+		$this->assertEquals( 10, has_action( 'init', array( $this->wp_is_mobile_text_widget, 'load_textdomain' ) ) );
+		$this->assertEquals( 10, has_filter( 'plugin_row_meta', array( $this->wp_is_mobile_text_widget, 'plugin_metadata_links' ) ) );
+
 		$this->assertEquals( 'wp_is_mobile_text', $this->wp_is_mobile_text_widget->id_base );
 		$this->assertEquals( 'WP Is Mobile Text', $this->wp_is_mobile_text_widget->name );
 
@@ -26,6 +29,23 @@ class Test_Wp_Is_Mobile_Text_Widget_Basic extends WP_UnitTestCase {
 		$this->assertEquals( '350', $this->wp_is_mobile_text_widget->control_options['height'] );
 
 		$this->assertEquals( 'widget_wp_is_mobile_text', $this->wp_is_mobile_text_widget->option_name );
+	}
+
+	/**
+	 * @test
+	 * @group basic
+	 */
+	public function load_textdomain() {
+		$result = $this->wp_is_mobile_text_widget->load_textdomain();
+		$this->assertNull( $result );
+	}
+
+	/**
+	 * @test
+	 * @group basic
+	 */
+	public function plugin_metadata_links() {
+		$this->markTestIncomplete( 'This test has not been implemented yet.' );
 	}
 
 }
