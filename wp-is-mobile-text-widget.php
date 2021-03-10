@@ -14,6 +14,10 @@
  * @package WP_Is_Mobile_Text_Widget
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 if ( class_exists( 'WP_Is_Mobile_Text_Widget' ) ) {
 	add_action( 'widgets_init', 'wp_is_mobile_text_widget_load_widgets' );
 }
