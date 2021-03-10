@@ -3,7 +3,7 @@
  * Plugin Name: WP Is Mobile Text Widget
  * Plugin URI:  https://github.com/thingsym/wp-is-mobile-text-widget
  * Description: This WordPress plugin adds text widget that switched display text using wp_is_mobile() function whether the device is mobile or not.
- * Version:     1.0.5
+ * Version:     1.1.0
  * Author:      thingsym
  * Author URI:  https://www.thingslabo.com/
  * License:     GPLv2 or later
@@ -13,6 +13,10 @@
  *
  * @package WP_Is_Mobile_Text_Widget
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 if ( class_exists( 'WP_Is_Mobile_Text_Widget' ) ) {
 	add_action( 'widgets_init', 'wp_is_mobile_text_widget_load_widgets' );
@@ -62,7 +66,8 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	 * @access public
 	 */
 	public function __construct() {
-		load_plugin_textdomain( 'wp-is-mobile-text-widget', false, basename( dirname( __FILE__ ) ) . '/languages' );
+		add_action( 'init', array( $this, 'load_textdomain' ) );
+		add_filter( 'plugin_row_meta', array( $this, 'plugin_metadata_links' ), 10, 2 );
 
 		$widget_options  = array(
 			'classname'                   => 'widget_is_mobile_text',
@@ -135,13 +140,17 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 		// Inject the Text widget's container class name alongside this widget's class name for theme styling compatibility.
 		$args['before_widget'] = preg_replace( '/(?<=\sclass=["\'])/', 'widget_text ', $args['before_widget'] );
 
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo $args['before_widget'];
 		if ( ! empty( $title ) ) {
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo $args['before_title'] . $title . $args['after_title'];
 		}
 		echo '<div class="textwidget wp-is-mobile-text-widget">';
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo $text;
 		echo '</div>';
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo $args['after_widget'];
 	}
 
@@ -205,7 +214,7 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 			<?php if ( ! empty( $disallowed_html ) ) : ?>
 				<p>
 					<?php esc_html_e( 'Some HTML tags are not permitted, including:', 'wp-is-mobile-text-widget' ); ?>
-					<code><?php echo join( '</code>, <code>', $disallowed_html ); ?></code>
+					<code><?php echo join( '</code>, <code>', $disallowed_html ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></code>
 				</p>
 			<?php endif; ?>
 		<?php endif; ?>
@@ -222,7 +231,7 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 			<?php if ( ! empty( $disallowed_html ) ) : ?>
 				<p>
 					<?php esc_html_e( 'Some HTML tags are not permitted, including:', 'wp-is-mobile-text-widget' ); ?>
-					<code><?php echo join( '</code>, <code>', $disallowed_html ); ?></code>
+					<code><?php echo join( '</code>, <code>', $disallowed_html ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></code>
 				</p>
 			<?php endif; ?>
 		<?php endif; ?>
@@ -230,5 +239,46 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 		<p><input id="<?php echo esc_attr( $this->get_field_id( 'filter' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'filter' ) ); ?>" type="checkbox"<?php checked( isset( $instance['filter'] ) ? $instance['filter'] : 0 ); ?> /> <label for="<?php echo esc_attr( $this->get_field_id( 'filter' ) ); ?>"><?php esc_html_e( 'Automatically add paragraphs', 'wp-is-mobile-text-widget' ); ?></label></p>
 
 		<?php
+	}
+
+	/**
+	 * Load textdomain
+	 *
+	 * @access public
+	 *
+	 * @return void
+	 *
+	 * @since 1.1.0
+	 */
+	public function load_textdomain() {
+		load_plugin_textdomain(
+			'wp-is-mobile-text-widget',
+			false,
+			dirname( plugin_basename( __FILE__ ) ) . '/languages/'
+		);
+	}
+
+	/**
+	 * Set links below a plugin on the Plugins page.
+	 *
+	 * Hooks to plugin_row_meta
+	 *
+	 * @see https://developer.wordpress.org/reference/hooks/plugin_row_meta/
+	 *
+	 * @access public
+	 *
+	 * @param array  $links  An array of the plugin's metadata.
+	 * @param string $file   Path to the plugin file relative to the plugins directory.
+	 *
+	 * @return array $links
+	 *
+	 * @since 1.1.0
+	 */
+	public function plugin_metadata_links( $links, $file ) {
+		if ( $file == plugin_basename( __FILE__ ) ) {
+			$links[] = '<a href="https://github.com/sponsors/thingsym">' . __( 'Become a sponsor', 'wp-is-mobile-text-widget' ) . '</a>';
+		}
+
+		return $links;
 	}
 }

@@ -1,32 +1,68 @@
+# Copyright (C) 2021 thingsym
+# This file is distributed under the same license as the WP Is Mobile Text Widget plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Is Mobile Text Widget\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-22 23:59+0900\n"
-"PO-Revision-Date: 2014-08-22 20:23+0900\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"Project-Id-Version: WP Is Mobile Text Widget 1.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-is-mobile-text-widget\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2021-03-10T11:19:02+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: wp-is-mobile-text-widget\n"
 
+#. Plugin Name of the plugin
+msgid "WP Is Mobile Text Widget"
+msgstr "WP Is Mobile Text Widget"
+
+#. Plugin URI of the plugin
+msgid "https://github.com/thingsym/wp-is-mobile-text-widget"
+msgstr "https://github.com/thingsym/wp-is-mobile-text-widget"
+
+#. Description of the plugin
+msgid "This WordPress plugin adds text widget that switched display text using wp_is_mobile() function whether the device is mobile or not."
+msgstr "このWordPressプラグインは、閲覧するデバイスがモバイルであるかどうかによって表示を切り替えるテキストウィジェットを追加します。"
+
+#. Author of the plugin
+msgid "thingsym"
+msgstr "thingsym"
+
+#. Author URI of the plugin
+msgid "https://www.thingslabo.com/"
+msgstr "https://www.thingslabo.com/"
+
+#: wp-is-mobile-text-widget.php:74
 msgid "Arbitrary text or HTML."
 msgstr "任意のテキストや HTML"
 
+#: wp-is-mobile-text-widget.php:82
 msgid "WP Is Mobile Text"
-msgstr ""
+msgstr "WP Is Mobile Text"
 
+#: wp-is-mobile-text-widget.php:202
 msgid "Title:"
 msgstr "タイトル:"
 
+#: wp-is-mobile-text-widget.php:205
 msgid "Text:"
 msgstr "テキスト:"
 
+#: wp-is-mobile-text-widget.php:216
+#: wp-is-mobile-text-widget.php:233
+msgid "Some HTML tags are not permitted, including:"
+msgstr "次を含む一部の HTML タグは許可されていません:"
+
+#: wp-is-mobile-text-widget.php:222
 msgid "Text on mobile:"
 msgstr "モバイル時のテキスト:"
 
+#: wp-is-mobile-text-widget.php:239
 msgid "Automatically add paragraphs"
 msgstr "自動的に段落追加する"
 
-msgid "Some HTML tags are not permitted, including:"
-msgstr "次を含む一部の HTML タグは許可されていません:"
+#: wp-is-mobile-text-widget.php:279
+msgid "Become a sponsor"
+msgstr "スポンサーになる"

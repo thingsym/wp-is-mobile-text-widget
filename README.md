@@ -1,9 +1,5 @@
 # Introducing WP Is Mobile Text Widget
 
-[![Build Status](https://travis-ci.org/thingsym/wp-is-mobile-text-widget.svg?branch=master)](https://travis-ci.org/thingsym/wp-is-mobile-text-widget)
-
-[![WordPress](https://img.shields.io/wordpress/v/wp-is-mobile-text-widget.svg)](https://wordpress.org/plugins/wp-is-mobile-text-widget/)
-
 This WordPress plugin adds text widget that switched display text using wp_is_mobile() function whether the device is mobile or not.
 
 ## Screenshot
@@ -33,7 +29,7 @@ WP Is Mobile Text Widget is hosted on the WordPress Plugin Directory.
 
 ## Test Matrix
 
-For operation compatibility between PHP version and WordPress version, see below [Travis CI](https://travis-ci.org/thingsym/wp-is-mobile-text-widget)
+For operation compatibility between PHP version and WordPress version, see below [Github Actions](https://github.com/thingsym/wp-is-mobile-text-widget/actions).
 
 ## Contribution
 
@@ -49,6 +45,18 @@ Small patches and bug reports can be submitted a issue tracker in Github. Forkin
 
 ## Changelog
 
+* Version 1.1.0
+	* tested up to 5.7.0
+	* add test case
+	* disable direct file access
+	* add load_textdomain method
+	* add sponsor link
+	* update japanese translation
+	* update pot
+	* add FUNDING.yml
+	* add donate link
+	* update wordpress-test-matrix
+	* add GitHub actions for CI/CD, remove .travis.yml
 * Version 1.0.5
 	* fix indent and reformat with phpcs and phpcbf
 	* add composer.json for test
