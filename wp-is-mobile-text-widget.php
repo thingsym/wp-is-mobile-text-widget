@@ -62,7 +62,7 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	 * @access public
 	 */
 	public function __construct() {
-		load_plugin_textdomain( 'wp-is-mobile-text-widget', false, basename( dirname( __FILE__ ) ) . '/languages' );
+		add_action( 'init', array( $this, 'load_textdomain' ) );
 		add_filter( 'plugin_row_meta', array( $this, 'plugin_metadata_links' ), 10, 2 );
 
 		$widget_options  = array(
@@ -235,6 +235,23 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 		<p><input id="<?php echo esc_attr( $this->get_field_id( 'filter' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'filter' ) ); ?>" type="checkbox"<?php checked( isset( $instance['filter'] ) ? $instance['filter'] : 0 ); ?> /> <label for="<?php echo esc_attr( $this->get_field_id( 'filter' ) ); ?>"><?php esc_html_e( 'Automatically add paragraphs', 'wp-is-mobile-text-widget' ); ?></label></p>
 
 		<?php
+	}
+
+	/**
+	 * Load textdomain
+	 *
+	 * @access public
+	 *
+	 * @return void
+	 *
+	 * @since 1.1.0
+	 */
+	public function load_textdomain() {
+		load_plugin_textdomain(
+			'wp-is-mobile-text-widget',
+			false,
+			dirname( plugin_basename( __FILE__ ) ) . '/languages/'
+		);
 	}
 
 	/**
