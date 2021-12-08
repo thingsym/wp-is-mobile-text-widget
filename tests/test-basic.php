@@ -60,7 +60,8 @@ class Test_Wp_Is_Mobile_Text_Widget_Basic extends WP_UnitTestCase {
 	 * @group basic
 	 */
 	public function plugin_metadata_links() {
-		$this->markTestIncomplete( 'This test has not been implemented yet.' );
+		$links = $this->wp_is_mobile_text_widget->plugin_metadata_links( array(), plugin_basename( __WP_Is_Mobile_Text_Widget__ ) );
+		$this->assertContains( '<a href="https://github.com/sponsors/thingsym">Become a sponsor</a>', $links );
 	}
 
 }
