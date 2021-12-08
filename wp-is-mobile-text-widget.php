@@ -42,7 +42,7 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	 *
 	 * @since 1.0.3
 	 *
-	 * @access protected
+	 * @access public
 	 *
 	 * @var array $default_instance {
 	 *     @type string title
@@ -51,7 +51,7 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	 *     @type string filter
 	 * }
 	 */
-	protected $default_instance = array(
+	public $default_instance = array(
 		'title'          => '',
 		'text'           => '',
 		'is_mobile_text' => '',

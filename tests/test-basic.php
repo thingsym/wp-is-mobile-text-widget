@@ -11,6 +11,21 @@ class Test_Wp_Is_Mobile_Text_Widget_Basic extends WP_UnitTestCase {
 	 * @test
 	 * @group basic
 	 */
+	function public_variable() {
+
+		$expected = array(
+			'title'          => '',
+			'text'           => '',
+			'is_mobile_text' => '',
+			'filter'         => false,
+		);
+		$this->assertEquals( $expected, $this->wp_is_mobile_text_widget->default_instance );
+	}
+
+	/**
+	 * @test
+	 * @group basic
+	 */
 	public function constructor_case() {
 		$this->assertEquals( 10, has_action( 'init', array( $this->wp_is_mobile_text_widget, 'load_textdomain' ) ) );
 		$this->assertEquals( 10, has_filter( 'plugin_row_meta', array( $this->wp_is_mobile_text_widget, 'plugin_metadata_links' ) ) );
