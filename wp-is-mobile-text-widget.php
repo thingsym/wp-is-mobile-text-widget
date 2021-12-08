@@ -3,7 +3,7 @@
  * Plugin Name: WP Is Mobile Text Widget
  * Plugin URI:  https://github.com/thingsym/wp-is-mobile-text-widget
  * Description: This WordPress plugin adds text widget that switched display text using wp_is_mobile() function whether the device is mobile or not.
- * Version:     1.1.0
+ * Version:     1.1.1
  * Author:      thingsym
  * Author URI:  https://www.thingslabo.com/
  * License:     GPLv2 or later
@@ -17,6 +17,8 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+define( '__WP_Is_Mobile_Text_Widget__', __FILE__ );
 
 if ( class_exists( 'WP_Is_Mobile_Text_Widget' ) ) {
 	add_action( 'widgets_init', 'wp_is_mobile_text_widget_load_widgets' );
@@ -42,7 +44,7 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	 *
 	 * @since 1.0.3
 	 *
-	 * @access protected
+	 * @access public
 	 *
 	 * @var array $default_instance {
 	 *     @type string title
@@ -51,7 +53,7 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	 *     @type string filter
 	 * }
 	 */
-	protected $default_instance = array(
+	public $default_instance = array(
 		'title'          => '',
 		'text'           => '',
 		'is_mobile_text' => '',
@@ -254,7 +256,7 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 		load_plugin_textdomain(
 			'wp-is-mobile-text-widget',
 			false,
-			dirname( plugin_basename( __FILE__ ) ) . '/languages/'
+			dirname( plugin_basename( __WP_Is_Mobile_Text_Widget__ ) ) . '/languages/'
 		);
 	}
 
@@ -275,7 +277,7 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	 * @since 1.1.0
 	 */
 	public function plugin_metadata_links( $links, $file ) {
-		if ( $file == plugin_basename( __FILE__ ) ) {
+		if ( $file == plugin_basename( __WP_Is_Mobile_Text_Widget__ ) ) {
 			$links[] = '<a href="https://github.com/sponsors/thingsym">' . __( 'Become a sponsor', 'wp-is-mobile-text-widget' ) . '</a>';
 		}
 

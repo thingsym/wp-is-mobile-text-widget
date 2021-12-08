@@ -8,7 +8,8 @@
     "phpmd/phpmd": "2.*",
     "phpstan/phpstan": "*",
     "phpunit/phpunit": "^7",
-    "phpcompatibility/phpcompatibility-wp": "*"
+    "phpcompatibility/phpcompatibility-wp": "*",
+    "yoast/phpunit-polyfills": "^1.0.1"
   },
   "prefer-stable" : true,
   "scripts": {
@@ -20,7 +21,7 @@
     "format:phpcbf": "phpcbf -p -s -v ./ --standard=./phpcs.ruleset.xml --extensions=php",
     "phpmd": "phpmd ./ text ./phpmd.ruleset.xml --suffixes php --exclude /languages,/tests,/vendor,/node_modules",
     "phpstan": "phpstan analyse",
-    "phpunit": "phpunit",
+    "phpunit": "phpunit && phpunit --group mobile",
     "coverage": "phpunit --coverage-html ./tests/report",
     "ci": [
       "@phpunit",
