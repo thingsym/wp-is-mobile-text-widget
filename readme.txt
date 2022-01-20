@@ -4,10 +4,10 @@ Contributors: thingsym
 Link: https://github.com/thingsym/wp-is-mobile-text-widget
 Donate link: https://github.com/sponsors/thingsym
 Tags: widget, text, mobile
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 Tested up to: 5.8.0
-Requires at least: 3.7
-Requires PHP: 5.3
+Requires at least: 4.9
+Requires PHP: 5.6
 License: GPL2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,14 @@ Small patches and bug reports can be submitted a issue tracker in Github. Forkin
 5. Have fun!
 
 == Changelog ==
+
+= 1.1.2 =
+* update wp-plugin-unit-test.yml
+* bump up yoast/phpunit-polyfills version
+* change os to ubuntu-20.04 for ci
+* add Upgrade Notice
+* change requires at least to wordpress 4.9
+* change requires to PHP 5.6
 
 = 1.1.1 =
 * add Constants
@@ -107,6 +115,10 @@ Small patches and bug reports can be submitted a issue tracker in Github. Forkin
 * initial release
 
 == Upgrade Notice ==
+
+= 1.1.2 =
+* Requires at least version 4.9 of the WordPress
+* Requires PHP version 5.6
 
 = 1.0.3 =
 * Requires at least version 3.7 of the Wordpress
