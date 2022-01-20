@@ -95,6 +95,9 @@ Small patches and bug reports can be submitted a issue tracker in Github. Forkin
 
 ## Upgrade Notice
 
+* Version 1.1.2
+	* Requires at least version 4.9 of the WordPress
+	* Requires PHP version 5.6
 * Version 1.0.3
 	* Requires at least version 3.7 of the Wordpress
 
