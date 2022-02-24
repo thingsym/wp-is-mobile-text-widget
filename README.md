@@ -45,6 +45,14 @@ Small patches and bug reports can be submitted a issue tracker in Github. Forkin
 
 ## Changelog
 
+* Version 1.1.3
+	* update japanese translation
+	* update pot
+	* change makepot from php script to wp cli
+	* fix constants to uppercase
+	* change plugin initialization to plugins_loaded hook
+	* replace assert from assertEquals to assertSame
+
 * Version 1.1.2
 	* update wp-plugin-unit-test.yml
 	* bump up yoast/phpunit-polyfills version
