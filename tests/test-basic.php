@@ -19,7 +19,7 @@ class Test_Wp_Is_Mobile_Text_Widget_Basic extends WP_UnitTestCase {
 			'is_mobile_text' => '',
 			'filter'         => false,
 		);
-		$this->assertEquals( $expected, $this->wp_is_mobile_text_widget->default_instance );
+		$this->assertSame( $expected, $this->wp_is_mobile_text_widget->default_instance );
 	}
 
 	/**
@@ -27,23 +27,23 @@ class Test_Wp_Is_Mobile_Text_Widget_Basic extends WP_UnitTestCase {
 	 * @group basic
 	 */
 	public function constructor_case() {
-		$this->assertEquals( 10, has_action( 'init', array( $this->wp_is_mobile_text_widget, 'load_textdomain' ) ) );
-		$this->assertEquals( 10, has_filter( 'plugin_row_meta', array( $this->wp_is_mobile_text_widget, 'plugin_metadata_links' ) ) );
+		$this->assertSame( 10, has_action( 'init', array( $this->wp_is_mobile_text_widget, 'load_textdomain' ) ) );
+		$this->assertSame( 10, has_filter( 'plugin_row_meta', array( $this->wp_is_mobile_text_widget, 'plugin_metadata_links' ) ) );
 
-		$this->assertEquals( 'wp_is_mobile_text', $this->wp_is_mobile_text_widget->id_base );
-		$this->assertEquals( 'WP Is Mobile Text', $this->wp_is_mobile_text_widget->name );
+		$this->assertSame( 'wp_is_mobile_text', $this->wp_is_mobile_text_widget->id_base );
+		$this->assertSame( 'WP Is Mobile Text', $this->wp_is_mobile_text_widget->name );
 
 		$this->assertArrayHasKey( 'classname', $this->wp_is_mobile_text_widget->widget_options );
-		$this->assertEquals( 'widget_is_mobile_text', $this->wp_is_mobile_text_widget->widget_options['classname'] );
+		$this->assertSame( 'widget_is_mobile_text', $this->wp_is_mobile_text_widget->widget_options['classname'] );
 		$this->assertArrayHasKey( 'description', $this->wp_is_mobile_text_widget->widget_options );
 		$this->assertContains( 'Arbitrary text or HTML.', $this->wp_is_mobile_text_widget->widget_options['description'] );
 
 		$this->assertArrayHasKey( 'id_base', $this->wp_is_mobile_text_widget->control_options );
-		$this->assertEquals( 'wp_is_mobile_text', $this->wp_is_mobile_text_widget->control_options['id_base'] );
-		$this->assertEquals( '400', $this->wp_is_mobile_text_widget->control_options['width'] );
-		$this->assertEquals( '350', $this->wp_is_mobile_text_widget->control_options['height'] );
+		$this->assertSame( 'wp_is_mobile_text', $this->wp_is_mobile_text_widget->control_options['id_base'] );
+		$this->assertSame( 400, $this->wp_is_mobile_text_widget->control_options['width'] );
+		$this->assertSame( 350, $this->wp_is_mobile_text_widget->control_options['height'] );
 
-		$this->assertEquals( 'widget_wp_is_mobile_text', $this->wp_is_mobile_text_widget->option_name );
+		$this->assertSame( 'widget_wp_is_mobile_text', $this->wp_is_mobile_text_widget->option_name );
 	}
 
 	/**
