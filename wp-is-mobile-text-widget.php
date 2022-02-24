@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( '__WP_Is_Mobile_Text_Widget__', __FILE__ );
+define( '__WP_IS_MOBILE_TEXT_WIDGET__', __FILE__ );
 
 if ( class_exists( 'WP_Is_Mobile_Text_Widget' ) ) {
 	add_action( 'widgets_init', 'wp_is_mobile_text_widget_load_widgets' );
@@ -256,7 +256,7 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 		load_plugin_textdomain(
 			'wp-is-mobile-text-widget',
 			false,
-			dirname( plugin_basename( __WP_Is_Mobile_Text_Widget__ ) ) . '/languages/'
+			dirname( plugin_basename( __WP_IS_MOBILE_TEXT_WIDGET__ ) ) . '/languages/'
 		);
 	}
 
@@ -277,7 +277,7 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	 * @since 1.1.0
 	 */
 	public function plugin_metadata_links( $links, $file ) {
-		if ( $file == plugin_basename( __WP_Is_Mobile_Text_Widget__ ) ) {
+		if ( $file == plugin_basename( __WP_IS_MOBILE_TEXT_WIDGET__ ) ) {
 			$links[] = '<a href="https://github.com/sponsors/thingsym">' . __( 'Become a sponsor', 'wp-is-mobile-text-widget' ) . '</a>';
 		}
 
