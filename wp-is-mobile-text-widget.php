@@ -68,7 +68,7 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	 * @access public
 	 */
 	public function __construct() {
-		add_action( 'init', array( $this, 'load_textdomain' ) );
+		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
 		add_filter( 'plugin_row_meta', array( $this, 'plugin_metadata_links' ), 10, 2 );
 
 		$widget_options  = array(
