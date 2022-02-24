@@ -1,5 +1,5 @@
-# Copyright (C) 2021 thingsym
-# This file is distributed under the same license as the WP Is Mobile Text Widget plugin.
+# Copyright (C) 2022 thingsym
+# This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Is Mobile Text Widget 1.1.2\n"
@@ -9,9 +9,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-03-10T11:19:02+00:00\n"
+"POT-Creation-Date: 2022-02-24T17:50:48+09:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.4.0\n"
+"X-Generator: WP-CLI 2.5.0\n"
 "X-Domain: wp-is-mobile-text-widget\n"
 
 #. Plugin Name of the plugin
@@ -34,35 +34,35 @@ msgstr "thingsym"
 msgid "https://www.thingslabo.com/"
 msgstr "https://www.thingslabo.com/"
 
-#: wp-is-mobile-text-widget.php:74
+#: wp-is-mobile-text-widget.php:76
 msgid "Arbitrary text or HTML."
 msgstr "任意のテキストや HTML"
 
-#: wp-is-mobile-text-widget.php:82
+#: wp-is-mobile-text-widget.php:84
 msgid "WP Is Mobile Text"
 msgstr "WP Is Mobile Text"
 
-#: wp-is-mobile-text-widget.php:202
+#: wp-is-mobile-text-widget.php:204
 msgid "Title:"
 msgstr "タイトル:"
 
-#: wp-is-mobile-text-widget.php:205
+#: wp-is-mobile-text-widget.php:207
 msgid "Text:"
 msgstr "テキスト:"
 
-#: wp-is-mobile-text-widget.php:216
-#: wp-is-mobile-text-widget.php:233
+#: wp-is-mobile-text-widget.php:218
+#: wp-is-mobile-text-widget.php:235
 msgid "Some HTML tags are not permitted, including:"
 msgstr "次を含む一部の HTML タグは許可されていません:"
 
-#: wp-is-mobile-text-widget.php:222
+#: wp-is-mobile-text-widget.php:224
 msgid "Text on mobile:"
 msgstr "モバイル時のテキスト:"
 
-#: wp-is-mobile-text-widget.php:239
+#: wp-is-mobile-text-widget.php:241
 msgid "Automatically add paragraphs"
 msgstr "自動的に段落追加する"
 
-#: wp-is-mobile-text-widget.php:279
+#: wp-is-mobile-text-widget.php:281
 msgid "Become a sponsor"
 msgstr "スポンサーになる"
