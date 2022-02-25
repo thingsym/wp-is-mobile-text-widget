@@ -45,6 +45,10 @@ Small patches and bug reports can be submitted a issue tracker in Github. Forkin
 
 ## Changelog
 
+* Version 1.2.0
+	* fix composer script
+	* separate the file structure for class file
+	* fix load_textdomain for Widgets Screen
 * Version 1.1.3
 	* update japanese translation
 	* update pot
@@ -52,7 +56,6 @@ Small patches and bug reports can be submitted a issue tracker in Github. Forkin
 	* fix constants to uppercase
 	* change plugin initialization to plugins_loaded hook
 	* replace assert from assertEquals to assertSame
-
 * Version 1.1.2
 	* update wp-plugin-unit-test.yml
 	* bump up yoast/phpunit-polyfills version
