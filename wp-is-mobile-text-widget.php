@@ -68,8 +68,7 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	 * @access public
 	 */
 	public function __construct() {
-		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
-		add_filter( 'plugin_row_meta', array( $this, 'plugin_metadata_links' ), 10, 2 );
+		$this->load_textdomain();
 
 		$widget_options  = array(
 			'classname'                   => 'widget_is_mobile_text',
@@ -82,6 +81,8 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 		);
 
 		parent::__construct( 'wp_is_mobile_text', __( 'WP Is Mobile Text', 'wp-is-mobile-text-widget' ), $widget_options, $control_options );
+
+		add_filter( 'plugin_row_meta', array( $this, 'plugin_metadata_links' ), 10, 2 );
 	}
 
 	/**

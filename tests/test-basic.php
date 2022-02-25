@@ -27,9 +27,6 @@ class Test_Wp_Is_Mobile_Text_Widget_Basic extends WP_UnitTestCase {
 	 * @group basic
 	 */
 	public function constructor_case() {
-		$this->assertSame( 10, has_action( 'plugins_loaded', array( $this->wp_is_mobile_text_widget, 'load_textdomain' ) ) );
-		$this->assertSame( 10, has_filter( 'plugin_row_meta', array( $this->wp_is_mobile_text_widget, 'plugin_metadata_links' ) ) );
-
 		$this->assertSame( 'wp_is_mobile_text', $this->wp_is_mobile_text_widget->id_base );
 		$this->assertSame( 'WP Is Mobile Text', $this->wp_is_mobile_text_widget->name );
 
@@ -44,6 +41,8 @@ class Test_Wp_Is_Mobile_Text_Widget_Basic extends WP_UnitTestCase {
 		$this->assertSame( 350, $this->wp_is_mobile_text_widget->control_options['height'] );
 
 		$this->assertSame( 'widget_wp_is_mobile_text', $this->wp_is_mobile_text_widget->option_name );
+
+		$this->assertSame( 10, has_filter( 'plugin_row_meta', array( $this->wp_is_mobile_text_widget, 'plugin_metadata_links' ) ) );
 	}
 
 	/**
