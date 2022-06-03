@@ -5,7 +5,7 @@ Link: https://github.com/thingsym/wp-is-mobile-text-widget
 Donate link: https://github.com/sponsors/thingsym
 Tags: widget, text, mobile
 Stable tag: 1.2.0
-Tested up to: 5.9.0
+Tested up to: 6.0.0
 Requires at least: 4.9
 Requires PHP: 5.6
 License: GPL2 or later
