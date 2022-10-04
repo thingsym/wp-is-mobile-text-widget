@@ -35,6 +35,7 @@
       "@makemo:ja"
     ],
     "makepot:wpcli": "wp i18n make-pot ./ ./languages/wp-is-mobile-text-widget.pot --exclude=dist,bin,tests,node_modules,vendor",
+    "msgmerge:ja": "msgmerge --update --backup off ./languages/wp-is-mobile-text-widget-ja.po ./languages/wp-is-mobile-text-widget.pot",
     "makemo:ja": "wp i18n make-mo languages/wp-is-mobile-text-widget-ja.po languages/",
     "msgfmt:ja": "msgfmt languages/wp-is-mobile-text-widget-ja.po -o languages/wp-is-mobile-text-widget-ja.mo"
   }
