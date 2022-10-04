@@ -223,15 +223,15 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	 *
 	 * @access public
 	 *
-	 * @return void
+	 * @return boolean
 	 *
 	 * @since 1.1.0
 	 */
 	public function load_textdomain() {
-		load_plugin_textdomain(
+		return load_plugin_textdomain(
 			'wp-is-mobile-text-widget',
 			false,
-			dirname( plugin_basename( __WP_IS_MOBILE_TEXT_WIDGET__ ) ) . '/languages/'
+			plugin_dir_path( __WP_IS_MOBILE_TEXT_WIDGET__ ) . 'languages'
 		);
 	}
 
