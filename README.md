@@ -76,6 +76,15 @@ For operation compatibility between PHP version and WordPress version, see below
 
 ## Changelog
 
+* Version 1.2.1
+	* tested up to 6.2.0
+	* fix composer scripts
+	* update github actions
+	* fix load_textdomain method for testability
+	* add msgmerge to composer scripts
+	* add support section and enhance contribution section to README
+	* fix license
+	* fix wp-plugin-unit-test.yml
 * Version 1.2.0
 	* fix composer script
 	* separate the file structure for class file
