@@ -1,6 +1,6 @@
 # Introducing WP Is Mobile Text Widget
 
-This WordPress plugin adds text widget that switched display text using wp_is_mobile() function whether the device is mobile or not.
+WP Is Mobile Text Widget plugin adds text widget that switched display text using wp_is_mobile() function whether the device is mobile or not.
 
 ## Screenshot
 
@@ -27,15 +27,33 @@ WP Is Mobile Text Widget is hosted on the WordPress Plugin Directory.
 
 [https://wordpress.org/plugins/wp-is-mobile-text-widget/](https://wordpress.org/plugins/wp-is-mobile-text-widget/)
 
-## Test Matrix
+= Support =
 
-For operation compatibility between PHP version and WordPress version, see below [Github Actions](https://github.com/thingsym/wp-is-mobile-text-widget/actions).
+If you have any trouble, you can use the forums or report bugs.
 
-## Contribution
+* Forum: [https://wordpress.org/support/plugin/wp-is-mobile-text-widget/](https://wordpress.org/support/plugin/wp-is-mobile-text-widget/)
+* Issues: [https://github.com/thingsym/wp-is-mobile-text-widget/issues](https://github.com/thingsym/wp-is-mobile-text-widget/issues)
 
-### Patches and Bug Fixes
+= Contribution =
 
 Small patches and bug reports can be submitted a issue tracker in Github. Forking on Github is another good way. You can send a pull request.
+
+Translating a plugin takes a lot of time, effort, and patience. I really appreciate the hard work from these contributors.
+
+If you have created or updated your own language pack, you can send gettext PO and MO files to author. I can bundle it into plugin.
+
+* [VCS - GitHub](https://github.com/thingsym/wp-is-mobile-text-widget)
+* [Homepage - WordPress Plugin](https://wordpress.org/plugins/wp-is-mobile-text-widget/)
+* [Translate WP Is Mobile Text Widget into your language.](https://translate.wordpress.org/projects/wp-plugins/wp-is-mobile-text-widget)
+
+You can also contribute by answering issues on the forums.
+
+* Forum: [https://wordpress.org/support/plugin/wp-is-mobile-text-widget/](https://wordpress.org/support/plugin/wp-is-mobile-text-widget/)
+* Issues: [https://github.com/thingsym/wp-is-mobile-text-widget/issues](https://github.com/thingsym/wp-is-mobile-text-widget/issues)
+
+= Patches and Bug Fixes =
+
+Forking on Github is another good way. You can send a pull request.
 
 1. Fork [WP Is Mobile Text Widget](https://github.com/thingsym/wp-is-mobile-text-widget) from GitHub repository
 2. Create a feature branch: git checkout -b my-new-feature
@@ -43,8 +61,30 @@ Small patches and bug reports can be submitted a issue tracker in Github. Forkin
 4. Push to the branch: git push origin my-new-feature
 5. Create new Pull Request
 
+= Contribute guidlines =
+
+If you would like to contribute, here are some notes and guidlines.
+
+* All development happens on the **develop** branch, so it is always the most up-to-date
+* The **master** branch only contains tagged releases
+* If you are going to be submitting a pull request, please submit your pull request to the **develop** branch
+* See about [forking](https://help.github.com/articles/fork-a-repo/) and [pull requests](https://help.github.com/articles/using-pull-requests/)
+
+## Test Matrix
+
+For operation compatibility between PHP version and WordPress version, see below [Github Actions](https://github.com/thingsym/wp-is-mobile-text-widget/actions).
+
 ## Changelog
 
+* Version 1.2.1
+	* tested up to 6.2.0
+	* fix composer scripts
+	* update github actions
+	* fix load_textdomain method for testability
+	* add msgmerge to composer scripts
+	* add support section and enhance contribution section to README
+	* fix license
+	* fix wp-plugin-unit-test.yml
 * Version 1.2.0
 	* fix composer script
 	* separate the file structure for class file
