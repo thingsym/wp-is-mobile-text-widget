@@ -84,7 +84,15 @@ jobs:
       - name: Run PHPUnit - WordPress ${{ matrix.wordpress }} * Multisite ${{ matrix.multisite }}
         run: |
           if [[ $PHP_VERSION == "5.6" ]] || [[ $PHP_VERSION == "7.0" ]] ; then
-            phpunit --configuration phpunit-legacy.xml
+            phpunit --exclude-group mobile --configuration phpunit-legacy.xml
           else
-            phpunit
+            phpunit --exclude-group mobile
+          fi
+
+      - name: Run PHPUnit - group mobile
+        run: |
+          if [[ $PHP_VERSION == "5.6" ]] || [[ $PHP_VERSION == "7.0" ]] ; then
+            phpunit --group mobile --configuration phpunit-legacy.xml
+          else
+            phpunit --group mobile
           fi
