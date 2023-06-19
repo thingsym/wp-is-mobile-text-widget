@@ -21,7 +21,7 @@
     "format:phpcbf": "phpcbf -p -s -v ./ --standard=./phpcs.ruleset.xml --extensions=php",
     "phpmd": "phpmd ./ text ./phpmd.ruleset.xml --suffixes php --exclude /languages,/tests,/vendor,/node_modules",
     "phpstan": "phpstan analyse",
-    "phpunit": "phpunit && phpunit --group mobile",
+    "phpunit": "phpunit --exclude-group mobile && phpunit --group mobile",
     "coverage": "phpunit --coverage-html ./tests/report",
     "ci": [
       "@phpunit",
