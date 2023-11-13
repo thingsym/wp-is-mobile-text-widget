@@ -27,14 +27,14 @@ WP Is Mobile Text Widget is hosted on the WordPress Plugin Directory.
 
 [https://wordpress.org/plugins/wp-is-mobile-text-widget/](https://wordpress.org/plugins/wp-is-mobile-text-widget/)
 
-= Support =
+## Support
 
 If you have any trouble, you can use the forums or report bugs.
 
 * Forum: [https://wordpress.org/support/plugin/wp-is-mobile-text-widget/](https://wordpress.org/support/plugin/wp-is-mobile-text-widget/)
 * Issues: [https://github.com/thingsym/wp-is-mobile-text-widget/issues](https://github.com/thingsym/wp-is-mobile-text-widget/issues)
 
-= Contribution =
+## Contribution
 
 Small patches and bug reports can be submitted a issue tracker in Github. Forking on Github is another good way. You can send a pull request.
 
@@ -51,7 +51,7 @@ You can also contribute by answering issues on the forums.
 * Forum: [https://wordpress.org/support/plugin/wp-is-mobile-text-widget/](https://wordpress.org/support/plugin/wp-is-mobile-text-widget/)
 * Issues: [https://github.com/thingsym/wp-is-mobile-text-widget/issues](https://github.com/thingsym/wp-is-mobile-text-widget/issues)
 
-= Patches and Bug Fixes =
+### Patches and Bug Fixes
 
 Forking on Github is another good way. You can send a pull request.
 
@@ -61,7 +61,7 @@ Forking on Github is another good way. You can send a pull request.
 4. Push to the branch: git push origin my-new-feature
 5. Create new Pull Request
 
-= Contribute guidlines =
+### Contribute guidlines
 
 If you would like to contribute, here are some notes and guidlines.
 
