@@ -33,7 +33,7 @@ class Test_Wp_Is_Mobile_Text_Widget_Basic extends WP_UnitTestCase {
 		$this->assertArrayHasKey( 'classname', $this->wp_is_mobile_text_widget->widget_options );
 		$this->assertSame( 'widget_is_mobile_text', $this->wp_is_mobile_text_widget->widget_options['classname'] );
 		$this->assertArrayHasKey( 'description', $this->wp_is_mobile_text_widget->widget_options );
-		$this->assertContains( 'Arbitrary text or HTML.', $this->wp_is_mobile_text_widget->widget_options['description'] );
+		$this->assertSame( 'Arbitrary text or HTML.', $this->wp_is_mobile_text_widget->widget_options['description'] );
 
 		$this->assertArrayHasKey( 'id_base', $this->wp_is_mobile_text_widget->control_options );
 		$this->assertSame( 'wp_is_mobile_text', $this->wp_is_mobile_text_widget->control_options['id_base'] );
