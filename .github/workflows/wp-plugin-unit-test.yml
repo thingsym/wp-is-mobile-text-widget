@@ -23,7 +23,7 @@ jobs:
 
       matrix:
         os: [ ubuntu-22.04 ]
-        php: [ '7.0', '7.1', '7.2', '7.3', '7.4', '8.0', '8.1', '8.2', '8.3' ]
+        php: [ '7.2', '7.3', '7.4', '8.0', '8.1', '8.2', '8.3' ]
         wordpress: [ latest, nightly ]
         multisite: [ 0 ]
 
@@ -48,15 +48,6 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           extensions: mbstring, intl, php-mysql
-
-      - name: apt --fix-broken install for PHP 7.0
-        run: sudo apt --fix-broken install
-        if: ${{ matrix.php == '7.0' }}
-
-      - name: Install mbstring library for PHP 7.0
-        # require ext-mbstring * -> it is missing from your system. Install or enable PHP's mbstring extension.
-        run: sudo apt-get install php7.0-mbstring
-        if: ${{ matrix.php == '7.0' }}
 
       - name: Install PHPUnit
         run: |
