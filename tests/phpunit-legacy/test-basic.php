@@ -50,10 +50,23 @@ class Test_Wp_Is_Mobile_Text_Widget_Basic extends WP_UnitTestCase {
 	 * @group basic
 	 */
 	public function load_textdomain() {
+		global $wp_version;
 		$loaded = $this->wp_is_mobile_text_widget->load_textdomain();
-		$this->assertFalse( $loaded );
+		if ( version_compare( (string) $wp_version, '6.7', '>=' ) ) {
+			$this->assertTrue( $loaded );
+		}
+		else {
+			$this->assertFalse( $loaded );
+		}
+	}
 
+	/**
+	 * @test
+	 * @group basic
+	 */
+	public function load_textdomain_change() {
 		unload_textdomain( 'wp-is-mobile-text-widget' );
+		$this->assertFalse( isset( $l10n[ 'wp-is-mobile-text-widget' ] ) );
 
 		add_filter( 'locale', [ $this, '_change_locale' ] );
 		add_filter( 'load_textdomain_mofile', [ $this, '_change_textdomain_mofile' ], 10, 2 );
@@ -61,10 +74,13 @@ class Test_Wp_Is_Mobile_Text_Widget_Basic extends WP_UnitTestCase {
 		$loaded = $this->wp_is_mobile_text_widget->load_textdomain();
 		$this->assertTrue( $loaded );
 
+		$this->assertSame( 'ja', get_locale() );
+
 		remove_filter( 'load_textdomain_mofile', [ $this, '_change_textdomain_mofile' ] );
 		remove_filter( 'locale', [ $this, '_change_locale' ] );
 
 		unload_textdomain( 'wp-is-mobile-text-widget' );
+		$this->assertFalse( isset( $l10n[ 'wp-is-mobile-text-widget' ] ) );
 	}
 
 	/**
@@ -76,7 +92,7 @@ class Test_Wp_Is_Mobile_Text_Widget_Basic extends WP_UnitTestCase {
 
 	function _change_textdomain_mofile( $mofile, $domain ) {
 		if ( $domain === 'wp-is-mobile-text-widget' ) {
-			$locale = determine_locale();
+			$locale = get_locale();
 			$mofile = plugin_dir_path( __WP_IS_MOBILE_TEXT_WIDGET__ ) . 'languages/wp-is-mobile-text-widget-' . $locale . '.mo';
 
 			$this->assertSame( $locale, get_locale() );
