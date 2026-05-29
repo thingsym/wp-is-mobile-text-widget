@@ -24,10 +24,10 @@ class Test_Wp_Is_Mobile_Text_Widget_Form extends WP_UnitTestCase {
 		$this->wp_is_mobile_text_widget->form( $instance );
 		$form = ob_get_clean();
 
-		$this->assertRegExp( '#value="aaaaa"#', $form );
-		$this->assertRegExp( '#<textarea.*?>bbbbb</textarea>#', $form );
-		$this->assertRegExp( '#<textarea.*?>ccccc</textarea>#', $form );
-		$this->assertRegExp( '#type="checkbox" />#', $form );
+		$this->assertMatchesRegularExpression( '#value="aaaaa"#', $form );
+		$this->assertMatchesRegularExpression( '#<textarea.*?>bbbbb</textarea>#', $form );
+		$this->assertMatchesRegularExpression( '#<textarea.*?>ccccc</textarea>#', $form );
+		$this->assertMatchesRegularExpression( '#type="checkbox" />#', $form );
 	}
 
 	/**
@@ -46,7 +46,7 @@ class Test_Wp_Is_Mobile_Text_Widget_Form extends WP_UnitTestCase {
 		$this->wp_is_mobile_text_widget->form( $instance );
 		$form = ob_get_clean();
 
-		$this->assertRegExp( '#type="checkbox" checked=\'checked\' />#', $form );
+		$this->assertMatchesRegularExpression( '#type="checkbox" checked=\'checked\' />#', $form );
 	}
 
 }
