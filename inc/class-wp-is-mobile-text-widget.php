@@ -231,7 +231,7 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 		return load_plugin_textdomain(
 			'wp-is-mobile-text-widget',
 			false,
-			plugin_dir_path( __WP_IS_MOBILE_TEXT_WIDGET__ ) . 'languages'
+			'wp-is-mobile-text-widget/languages'
 		);
 	}
 
