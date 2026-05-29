@@ -6,7 +6,7 @@
   convertErrorsToExceptions="true"
   convertNoticesToExceptions="true"
   convertWarningsToExceptions="true"
-  cacheResult="false"
+  cacheResult ="false"
   >
   <testsuites>
     <testsuite name="default">
@@ -15,7 +15,7 @@
   </testsuites>
   <filter>
     <whitelist processUncoveredFilesFromWhitelist="true">
-      <file>./back-to-the-top.php</file>
+      <file>./wp-is-mobile-text-widget.php</file>
       <directory suffix=".php">./inc</directory>
     </whitelist>
   </filter>
