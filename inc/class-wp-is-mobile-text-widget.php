@@ -252,7 +252,7 @@ class WP_Is_Mobile_Text_Widget extends WP_Widget {
 	 * @since 1.1.0
 	 */
 	public function plugin_metadata_links( $links, $file ) {
-		if ( $file == plugin_basename( __WP_IS_MOBILE_TEXT_WIDGET__ ) ) {
+		if ( $file === plugin_basename( __WP_IS_MOBILE_TEXT_WIDGET__ ) ) {
 			$links[] = '<a href="https://github.com/sponsors/thingsym">' . __( 'Become a sponsor', 'wp-is-mobile-text-widget' ) . '</a>';
 		}
 
