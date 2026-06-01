@@ -30,9 +30,9 @@ class Test_Wp_Is_Mobile_Text_Widget_Widget_Pc extends WP_UnitTestCase {
 		$this->wp_is_mobile_text_widget->widget( $args, $instance );
 		$widget = ob_get_clean();
 
-		$this->assertRegExp( '#<aside id="wp_is_mobile_text-1" class="widget_text widget widget_is_mobile_text">#', $widget );
-		$this->assertRegExp( '#<h3 class="widget-title">aaaaa</h3>#', $widget );
-		$this->assertRegExp( '#<div class="textwidget wp-is-mobile-text-widget">bbbbb</div>#', $widget );
+		$this->assertMatchesRegularExpression( '#<aside id="wp_is_mobile_text-1" class="widget_text widget widget_is_mobile_text">#', $widget );
+		$this->assertMatchesRegularExpression( '#<h3 class="widget-title">aaaaa</h3>#', $widget );
+		$this->assertMatchesRegularExpression( '#<div class="textwidget wp-is-mobile-text-widget">bbbbb</div>#', $widget );
 	}
 
 	/**
@@ -58,8 +58,8 @@ class Test_Wp_Is_Mobile_Text_Widget_Widget_Pc extends WP_UnitTestCase {
 		$this->wp_is_mobile_text_widget->widget( $args, $instance );
 		$widget = ob_get_clean();
 
-		$this->assertRegExp( '#<h3 class="widget-title">aaaaa</h3>#', $widget );
-		$this->assertRegExp( '#<div class="textwidget wp-is-mobile-text-widget">bbb<br>bb</div>#', $widget );
+		$this->assertMatchesRegularExpression( '#<h3 class="widget-title">aaaaa</h3>#', $widget );
+		$this->assertMatchesRegularExpression( '#<div class="textwidget wp-is-mobile-text-widget">bbb<br>bb</div>#', $widget );
 	}
 
 	/**
@@ -89,8 +89,8 @@ class Test_Wp_Is_Mobile_Text_Widget_Widget_Pc extends WP_UnitTestCase {
 		$this->wp_is_mobile_text_widget->widget( $args, $instance );
 		$widget = ob_get_clean();
 
-		$this->assertRegExp( '#<h3 class="widget-title">aaaaa</h3>#', $widget );
-		$this->assertRegExp( '#<div class="textwidget wp-is-mobile-text-widget">' . $expected['text'] . '</div>#', $widget );
+		$this->assertMatchesRegularExpression( '#<h3 class="widget-title">aaaaa</h3>#', $widget );
+		$this->assertMatchesRegularExpression( '#<div class="textwidget wp-is-mobile-text-widget">' . $expected['text'] . '</div>#', $widget );
 	}
 
 	/**
@@ -119,8 +119,8 @@ class Test_Wp_Is_Mobile_Text_Widget_Widget_Pc extends WP_UnitTestCase {
 		$this->wp_is_mobile_text_widget->widget( $args, $instance );
 		$widget = ob_get_clean();
 
-		$this->assertRegExp( '#<h3 class="widget-title">via filter</h3>#', $widget );
-		$this->assertRegExp( '#<div class="textwidget wp-is-mobile-text-widget">via filter</div>#', $widget );
+		$this->assertMatchesRegularExpression( '#<h3 class="widget-title">via filter</h3>#', $widget );
+		$this->assertMatchesRegularExpression( '#<div class="textwidget wp-is-mobile-text-widget">via filter</div>#', $widget );
 	}
 
 	/**
@@ -148,7 +148,7 @@ class Test_Wp_Is_Mobile_Text_Widget_Widget_Pc extends WP_UnitTestCase {
 		$this->wp_is_mobile_text_widget->widget( $args, $instance );
 		$widget = ob_get_clean();
 
-		$this->assertRegExp( '#<div class="textwidget wp-is-mobile-text-widget">via filter</div>#', $widget );
+		$this->assertMatchesRegularExpression( '#<div class="textwidget wp-is-mobile-text-widget">via filter</div>#', $widget );
 	}
 
 	public function _filter_test() {
