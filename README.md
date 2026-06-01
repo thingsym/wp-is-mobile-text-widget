@@ -77,87 +77,88 @@ For operation compatibility between PHP version and WordPress version, see below
 ## Changelog
 
 * Version 1.2.1
-	* tested up to 6.2.0
-	* fix composer scripts
-	* update github actions
-	* fix load_textdomain method for testability
-	* add msgmerge to composer scripts
-	* add support section and enhance contribution section to README
-	* fix license
-	* fix wp-plugin-unit-test.yml
+  * tested up to 6.2.0
+  * fix composer scripts
+  * update github actions
+  * fix load_textdomain method for testability
+  * add msgmerge to composer scripts
+  * add support section and enhance contribution section to README
+  * fix license
+  * fix wp-plugin-unit-test.yml
 * Version 1.2.0
-	* fix composer script
-	* separate the file structure for class file
-	* fix load_textdomain for Widgets Screen
+  * fix composer script
+  * separate the file structure for class file
+  * fix load_textdomain for Widgets Screen
 * Version 1.1.3
-	* update japanese translation
-	* update pot
-	* change makepot from php script to wp cli
-	* fix constants to uppercase
-	* change plugin initialization to plugins_loaded hook
-	* replace assert from assertEquals to assertSame
+  * update japanese translation
+  * update pot
+  * change makepot from php script to wp cli
+  * fix constants to uppercase
+  * change plugin initialization to plugins_loaded hook
+  * replace assert from assertEquals to assertSame
 * Version 1.1.2
-	* update wp-plugin-unit-test.yml
-	* bump up yoast/phpunit-polyfills version
-	* change os to ubuntu-20.04 for ci
-	* add Upgrade Notice
-	* change requires at least to wordpress 4.9
-	* change requires to PHP 5.6
+  * update wp-plugin-unit-test.yml
+  * bump up yoast/phpunit-polyfills version
+  * change os to ubuntu-20.04 for ci
+  * add Upgrade Notice
+  * change requires at least to wordpress 4.9
+  * change requires to PHP 5.6
 * Version 1.1.1
-	* add Constants
-	* change from protected variable to public variable for unit test
-	* update composer dependencies
-	* fix composer scripts
-	* add timeout-minutes to workflows
-	* add phpunit-polyfills
-	* tested up to 5.8.0
+  * add Constants
+  * change from protected variable to public variable for unit test
+  * update composer dependencies
+  * fix composer scripts
+  * add timeout-minutes to workflows
+  * add phpunit-polyfills
+  * tested up to 5.8.0
 * Version 1.1.0
-	* tested up to 5.7.0
-	* add test case
-	* disable direct file access
-	* add load_textdomain method
-	* add sponsor link
-	* update japanese translation
-	* update pot
-	* add FUNDING.yml
-	* add donate link
-	* update wordpress-test-matrix
-	* add GitHub actions for CI/CD, remove .travis.yml
+  * tested up to 5.7.0
+  * add test case
+  * disable direct file access
+  * add load_textdomain method
+  * add sponsor link
+  * update japanese translation
+  * update pot
+  * add FUNDING.yml
+  * add donate link
+  * update wordpress-test-matrix
+  * add GitHub actions for CI/CD, remove .travis.yml
 * Version 1.0.5
-	* fix indent and reformat with phpcs and phpcbf
-	* add composer.json for test
-	* add static code analysis config
+  * fix indent and reformat with phpcs and phpcbf
+  * add composer.json for test
+  * add static code analysis config
 * Version 1.0.4
-	* return noting in case empty text
-	* fix $instance value in case none $new_instance
-	* fix PHPDoc
-	* fix codesniffer.ruleset.xml
-	* fix tests
+  * return noting in case empty text
+  * fix $instance value in case none $new_instance
+  * fix PHPDoc
+  * fix codesniffer.ruleset.xml
+  * fix tests
 * Version 1.0.3
-	* fix label
-	* update screenshot
-	* fix languages
-	* refactoring
-	* add PHPDoc comment
-	* add filters 'widget_text'
-	* add filters 'wp_is_mobile_text_widget_text' and 'wp_is_mobile_text_widget_is_mobile_true'
-	* fix tests
-	* fix .travis.yml
+  * fix label
+  * update screenshot
+  * fix languages
+  * refactoring
+  * add PHPDoc comment
+  * add filters 'widget_text'
+  * add filters 'wp_is_mobile_text_widget_text' and 'wp_is_mobile_text_widget_is_mobile_true'
+  * fix tests
+  * fix .travis.yml
 * Version 1.0.2
-	* refactoring
-	* add phpunit and tests
+  * refactoring
+  * add phpunit and tests
 * Version 1.0.1
-	* clean up source by the PHP_CodeSniffer
+  * clean up source by the PHP_CodeSniffer
 * Version 1.0.0
-	* initial release
+  * initial release
 
 ## Upgrade Notice
 
+
 * Version 1.1.2
-	* Requires at least version 4.9 of the WordPress
-	* Requires PHP version 5.6
+  * Requires at least version 4.9 of the WordPress
+  * Requires PHP version 5.6
 * Version 1.0.3
-	* Requires at least version 3.7 of the Wordpress
+  * Requires at least version 3.7 of the Wordpress
 
 ## License
 
